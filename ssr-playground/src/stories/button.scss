@@ -6,20 +6,22 @@
   cursor: pointer;
   display: inline-block;
   box-sizing: border-box;
+
+  &:hover:not(.storybook-button--disabled) {
+    box-shadow: 0 2px 8px #0D4B7C44;
+  }
 }
 
 .storybook-button--primary {
   color: white;
   background-color: #2DA1FD;
   border: 2px solid #2DA1FD;
-  box-shadow: 0 2px 8px #0D4B7C44;
 }
 
 .storybook-button--secondary {
   color: white;
   background-color: #334587;
   border: 2px solid #334587;
-  box-shadow: 0 2px 8px #2DA1FD44;
 }
 
 .storybook-button--small {
@@ -41,10 +43,10 @@
 }
 
 .storybook-button--disabled {
-  border-color: transparent;
+  border-color: transparent !important;
   box-shadow: unset;
-  background-color: #8F949F70;
-  color: #fff;
+  background-color: #8F949F70 !important;
+  color: #fff !important;
   cursor: not-allowed;
 }
 
