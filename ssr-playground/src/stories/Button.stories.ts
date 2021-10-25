@@ -4,7 +4,7 @@ import Button from './button.component';
 
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
+  title: 'Button',
   component: Button,
 } as Meta;
 

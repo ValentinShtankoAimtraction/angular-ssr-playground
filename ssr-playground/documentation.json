@@ -60,7 +60,7 @@
     },
     {
       "name": "ButtonComponent",
-      "id": "component-ButtonComponent-90aed065a506fb3e02f1d6d7af3334df",
+      "id": "component-ButtonComponent-223efdbf2ea6ff03c8ac8a403df90f1d",
       "file": "src/stories/button.component.ts",
       "encapsulation": [],
       "entryComponents": [],
@@ -69,10 +69,10 @@
       "providers": [],
       "selector": "storybook-button",
       "styleUrls": [
-        "./button.css"
+        "./button.scss"
       ],
       "styles": [],
-      "template": "<button   type=\"button\"\n   (click)=\"onClick.emit($event)\"\n   [ngClass]=\"classes\"\n >\n   {{ label }}\n </button>",
+      "template": "<button\n  type=\"button\"\n  (click)=\"onClick.emit($event)\"\n  [ngClass]=\"classes\"\n>\n  {{ label }}\n</button>",
       "templateUrl": [],
       "viewProviders": [],
       "inputsClass": [
@@ -83,15 +83,15 @@
           "deprecationMessage": "",
           "jsdoctags": [
             {
-              "pos": 657,
-              "end": 670,
+              "pos": 672,
+              "end": 685,
               "flags": 4227072,
               "modifierFlagsCache": 0,
               "transformFlags": 0,
               "kind": 322,
               "tagName": {
-                "pos": 658,
-                "end": 666,
+                "pos": 673,
+                "end": 681,
                 "flags": 4227072,
                 "modifierFlagsCache": 0,
                 "transformFlags": 0,
@@ -103,7 +103,7 @@
           ],
           "rawdescription": "disabled property",
           "description": "<p>disabled property</p>\n",
-          "line": 41,
+          "line": 42,
           "type": "boolean"
         },
         {
@@ -113,15 +113,15 @@
           "deprecationMessage": "",
           "jsdoctags": [
             {
-              "pos": 569,
-              "end": 582,
+              "pos": 584,
+              "end": 597,
               "flags": 4227072,
               "modifierFlagsCache": 0,
               "transformFlags": 0,
               "kind": 322,
               "tagName": {
-                "pos": 570,
-                "end": 578,
+                "pos": 585,
+                "end": 593,
                 "flags": 4227072,
                 "modifierFlagsCache": 0,
                 "transformFlags": 0,
@@ -133,7 +133,7 @@
           ],
           "rawdescription": "Button contents",
           "description": "<p>Button contents</p>\n",
-          "line": 33,
+          "line": 34,
           "type": "string"
         },
         {
@@ -143,7 +143,7 @@
           "deprecationMessage": "",
           "rawdescription": "outline property",
           "description": "<p>outline property</p>\n",
-          "line": 48,
+          "line": 49,
           "type": "boolean"
         },
         {
@@ -153,7 +153,7 @@
           "deprecationMessage": "",
           "rawdescription": "Is this the principal call to action on the page?",
           "description": "<p>Is this the principal call to action on the page?</p>\n",
-          "line": 19,
+          "line": 20,
           "type": "boolean"
         },
         {
@@ -163,7 +163,7 @@
           "deprecationMessage": "",
           "rawdescription": "How large should the button be?",
           "description": "<p>How large should the button be?</p>\n",
-          "line": 25,
+          "line": 26,
           "type": "\"small\" | \"medium\" | \"large\""
         }
       ],
@@ -175,7 +175,7 @@
           "deprecationMessage": "",
           "rawdescription": "\n\nOptional click handler\n",
           "description": "<p>Optional click handler</p>\n",
-          "line": 54,
+          "line": 55,
           "type": "EventEmitter"
         }
       ],
@@ -188,12 +188,12 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  template: ` <button\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Approve';\n\n  /**\n   * disabled property\n   *\n   * @required\n   */\n  @Input()\n  disabled = false;\n\n  /**\n   * outline property\n   *\n   */\n  @Input()\n  outline = false;\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n    const disabled = this.disabled ? 'storybook-button--disabled' : '';\n    const outline = this.outline ? 'storybook-button--outline' : '';\n    return ['storybook-button', `storybook-button--${this.size}`, mode, disabled, outline];\n  }\n}\n",
+      "sourceCode": "import {Component, Input, Output, EventEmitter} from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  template: `\n    <button\n      type=\"button\"\n      (click)=\"onClick.emit($event)\"\n      [ngClass]=\"classes\"\n    >\n      {{ label }}\n    </button>`,\n  styleUrls: ['./button.scss'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Approve';\n\n  /**\n   * disabled property\n   *\n   * @required\n   */\n  @Input()\n  disabled = false;\n\n  /**\n   * outline property\n   *\n   */\n  @Input()\n  outline = false;\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n    const disabled = this.disabled ? 'storybook-button--disabled' : '';\n    const outline = this.outline ? 'storybook-button--outline' : '';\n    return ['storybook-button', `storybook-button--${this.size}`, mode, disabled, outline];\n  }\n}\n",
       "assetsDirs": [],
       "styleUrlsData": [
         {
-          "data": ".storybook-button {\n  font-family: 'DM Sans', sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 4px;\n  cursor: pointer;\n  display: inline-block;\n}\n.storybook-button--primary {\n  color: white;\n  background-color: #2DA1FD;\n  box-shadow: 0 2px 8px #0D4B7C44;\n}\n.storybook-button--secondary {\n  color: white;\n  background-color: #334587;\n  box-shadow: 0 2px 8px #2DA1FD44;\n}\n.storybook-button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n.storybook-button--medium {\n  font-size: 14px;\n  line-height: 20px;\n  padding: 7px 15px;\n}\n.storybook-button--large {\n  font-size: 16px;\n  font-weight: 500;\n  padding: 14px 22px;\n}\n\n.storybook-button--disabled {\n  border-color: transparent;\n  background-color: #8F949F70;\n  color: #fff;\n  cursor: not-allowed;\n}\n",
-          "styleUrl": "./button.css"
+          "data": ".storybook-button {\n  font-family: 'DM Sans', sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 4px;\n  cursor: pointer;\n  display: inline-block;\n  box-sizing: border-box;\n\n  &:hover:not(.storybook-button--disabled) {\n    box-shadow: 0 2px 8px #0D4B7C44;\n  }\n}\n\n.storybook-button--primary {\n  color: white;\n  background-color: #2DA1FD;\n  border: 2px solid #2DA1FD;\n}\n\n.storybook-button--secondary {\n  color: white;\n  background-color: #334587;\n  border: 2px solid #334587;\n}\n\n.storybook-button--small {\n  font-size: 12px;\n  padding: 5px 10px;\n  text-transform: uppercase;\n}\n\n.storybook-button--medium {\n  font-size: 14px;\n  line-height: 20px;\n  padding: 7px 15px;\n}\n\n.storybook-button--large {\n  font-size: 16px;\n  font-weight: 500;\n  padding: 14px 22px;\n}\n\n.storybook-button--disabled {\n  border-color: transparent !important;\n  box-shadow: unset;\n  background-color: #8F949F70 !important;\n  color: #fff !important;\n  cursor: not-allowed;\n}\n\n.storybook-button--outline {\n  border: 2px solid;\n  box-shadow: unset;\n  background: transparent;\n\n  &.storybook-button--primary {\n    border-color: #35A9EF;\n    color: #35A9EF;\n  }\n\n  &.storybook-button--secondary {\n    border-color: #334587;\n    color: #334587;\n  }\n}\n",
+          "styleUrl": "./button.scss"
         }
       ],
       "stylesData": "",
@@ -204,14 +204,54 @@
             "name": "classes",
             "type": "[]",
             "returnType": "string[]",
-            "line": 56
+            "line": 57
           }
         }
       }
     },
     {
+      "name": "CourseCardComponent",
+      "id": "component-CourseCardComponent-1c00e17ee30c8134e62e6b81b08adee5",
+      "file": "src/stories/components/course-card/course-card.component.ts",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "app-course-card",
+      "styleUrls": [
+        "./course-card.component.scss"
+      ],
+      "styles": [],
+      "templateUrl": [
+        "./course-card.component.html"
+      ],
+      "viewProviders": [],
+      "inputsClass": [],
+      "outputsClass": [],
+      "propertiesClass": [],
+      "methodsClass": [],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-course-card',\n  templateUrl: './course-card.component.html',\n  styleUrls: ['./course-card.component.scss']\n})\nexport class CourseCardComponent {\n\n}\n",
+      "assetsDirs": [],
+      "styleUrlsData": [
+        {
+          "data": "",
+          "styleUrl": "./course-card.component.scss"
+        }
+      ],
+      "stylesData": "",
+      "templateData": "<p>course-card works!</p>\n"
+    },
+    {
       "name": "HeaderComponent",
-      "id": "component-HeaderComponent-246e2a69dc126a3bd76c6328dd3b93e2",
+      "id": "component-HeaderComponent-55f6e82f33db0bae43475610f67af27d",
       "file": "src/stories/header.component.ts",
       "encapsulation": [],
       "entryComponents": [],
@@ -223,7 +263,7 @@
         "./header.css"
       ],
       "styles": [],
-      "template": "<header>    <div class=\"wrapper\">\n      <div>\n        <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div>\n        <storybook-button\n          *ngIf=\"user\"\n          size=\"small\"\n          (onClick)=\"onLogout.emit($event)\"\n          label=\"Log out\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          size=\"small\"\n          (onClick)=\"onLogin.emit($event)\"\n          label=\"Log in\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          primary\n          size=\"small\"\n          (onClick)=\"onCreateAccount.emit($event)\"\n          label=\"Sign up\"\n        ></storybook-button>\n      </div>\n    </div>\n  </header>",
+      "template": "<header>\n  <div class=\"wrapper\">\n    <div>\n      <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n        <g fill=\"none\" fillRule=\"evenodd\">\n          <path\n            d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n            fill=\"#FFF\"\n          />\n          <path\n            d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n            fill=\"#555AB9\"\n          />\n          <path\n            d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n            fill=\"#91BAF8\"\n          />\n        </g>\n      </svg>\n      <h1>Acme</h1>\n    </div>\n    <div>\n      <storybook-button\n        *ngIf=\"user\"\n        size=\"small\"\n        (onClick)=\"onLogout.emit($event)\"\n        label=\"Log out\"\n      ></storybook-button>\n      <storybook-button\n        *ngIf=\"!user\"\n        size=\"small\"\n        (onClick)=\"onLogin.emit($event)\"\n        label=\"Log in\"\n      ></storybook-button>\n      <storybook-button\n        *ngIf=\"!user\"\n        primary\n        size=\"small\"\n        (onClick)=\"onCreateAccount.emit($event)\"\n        label=\"Sign up\"\n      ></storybook-button>\n    </div>\n  </div>\n</header>",
       "templateUrl": [],
       "viewProviders": [],
       "inputsClass": [
@@ -232,7 +272,7 @@
           "defaultValue": "null",
           "deprecated": false,
           "deprecationMessage": "",
-          "line": 53,
+          "line": 54,
           "type": ""
         }
       ],
@@ -242,7 +282,7 @@
           "defaultValue": "new EventEmitter<Event>()",
           "deprecated": false,
           "deprecationMessage": "",
-          "line": 62,
+          "line": 63,
           "type": "EventEmitter"
         },
         {
@@ -250,7 +290,7 @@
           "defaultValue": "new EventEmitter<Event>()",
           "deprecated": false,
           "deprecationMessage": "",
-          "line": 56,
+          "line": 57,
           "type": "EventEmitter"
         },
         {
@@ -258,7 +298,7 @@
           "defaultValue": "new EventEmitter<Event>()",
           "deprecated": false,
           "deprecationMessage": "",
-          "line": 59,
+          "line": 60,
           "type": "EventEmitter"
         }
       ],
@@ -271,7 +311,7 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-header',\n  template: `<header>\n    <div class=\"wrapper\">\n      <div>\n        <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div>\n        <storybook-button\n          *ngIf=\"user\"\n          size=\"small\"\n          (onClick)=\"onLogout.emit($event)\"\n          label=\"Log out\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          size=\"small\"\n          (onClick)=\"onLogin.emit($event)\"\n          label=\"Log in\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          primary\n          size=\"small\"\n          (onClick)=\"onCreateAccount.emit($event)\"\n          label=\"Sign up\"\n        ></storybook-button>\n      </div>\n    </div>\n  </header>`,\n  styleUrls: ['./header.css'],\n})\nexport default class HeaderComponent {\n  @Input()\n  user: unknown = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n",
+      "sourceCode": "import {Component, Input, Output, EventEmitter} from '@angular/core';\n\n@Component({\n  selector: 'storybook-header',\n  template: `\n    <header>\n      <div class=\"wrapper\">\n        <div>\n          <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n            <g fill=\"none\" fillRule=\"evenodd\">\n              <path\n                d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n                fill=\"#FFF\"\n              />\n              <path\n                d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n                fill=\"#555AB9\"\n              />\n              <path\n                d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n                fill=\"#91BAF8\"\n              />\n            </g>\n          </svg>\n          <h1>Acme</h1>\n        </div>\n        <div>\n          <storybook-button\n            *ngIf=\"user\"\n            size=\"small\"\n            (onClick)=\"onLogout.emit($event)\"\n            label=\"Log out\"\n          ></storybook-button>\n          <storybook-button\n            *ngIf=\"!user\"\n            size=\"small\"\n            (onClick)=\"onLogin.emit($event)\"\n            label=\"Log in\"\n          ></storybook-button>\n          <storybook-button\n            *ngIf=\"!user\"\n            primary\n            size=\"small\"\n            (onClick)=\"onCreateAccount.emit($event)\"\n            label=\"Sign up\"\n          ></storybook-button>\n        </div>\n      </div>\n    </header>`,\n  styleUrls: ['./header.css'],\n})\nexport default class HeaderComponent {\n  @Input()\n  user: unknown = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n",
       "assetsDirs": [],
       "styleUrlsData": [
         {
@@ -283,7 +323,7 @@
     },
     {
       "name": "PageComponent",
-      "id": "component-PageComponent-8f196770333aa216860a88c0b6b221aa",
+      "id": "component-PageComponent-6d5c9bdd244d9e514a2acfde9058f90f",
       "file": "src/stories/page.component.ts",
       "encapsulation": [],
       "entryComponents": [],
@@ -343,7 +383,7 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-page',\n  template: `<article>\n    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"onLogout.emit($event)\"\n      (onLogin)=\"onLogin.emit($event)\"\n      (onCreateAccount)=\"onCreateAccount.emit($event)\"\n    ></storybook-header>\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Storybook tutorials\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>`,\n  styleUrls: ['./page.css'],\n})\nexport default class PageComponent {\n  @Input()\n  user: unknown = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n\n// export const Page = ({ user, onLogin, onLogout, onCreateAccount }) => (\n//   <article>\n//     <Header user={user} onLogin={onLogin} onLogout={onLogout} onCreateAccount={onCreateAccount} />\n\n// );\n// Page.propTypes = {\n//   user: PropTypes.shape({}),\n//   onLogin: PropTypes.func.isRequired,\n//   onLogout: PropTypes.func.isRequired,\n//   onCreateAccount: PropTypes.func.isRequired,\n// };\n\n// Page.defaultProps = {\n//   user: null,\n// };\n",
+      "sourceCode": "import {Component, Input, Output, EventEmitter} from '@angular/core';\n\n@Component({\n  selector: 'storybook-page',\n  template: `<article>\n    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"onLogout.emit($event)\"\n      (onLogin)=\"onLogin.emit($event)\"\n      (onCreateAccount)=\"onCreateAccount.emit($event)\"\n    ></storybook-header>\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Storybook tutorials\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>`,\n  styleUrls: ['./page.css'],\n})\nexport default class PageComponent {\n  @Input()\n  user: unknown = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n\n// export const Page = ({ user, onLogin, onLogout, onCreateAccount }) => (\n//   <article>\n//     <Header user={user} onLogin={onLogin} onLogout={onLogout} onCreateAccount={onCreateAccount} />\n\n// );\n// Page.propTypes = {\n//   user: PropTypes.shape({}),\n//   onLogin: PropTypes.func.isRequired,\n//   onLogout: PropTypes.func.isRequired,\n//   onCreateAccount: PropTypes.func.isRequired,\n// };\n\n// Page.defaultProps = {\n//   user: null,\n// };\n",
       "assetsDirs": [],
       "styleUrlsData": [
         {
@@ -658,6 +698,16 @@
         "name": "Template",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "src/stories/Course-card.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story<CourseCardComponent>",
+        "defaultValue": "(args: CourseCardComponent) => ({\n  props: args,\n})"
+      },
+      {
+        "name": "Template",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "src/stories/Header.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -913,6 +963,18 @@
           "type": "Story<Page>",
           "defaultValue": "(args: Page) => ({\n  props: args,\n})"
         }
+      ],
+      "src/stories/Course-card.stories.ts": [
+        {
+          "name": "Template",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/stories/Course-card.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story<CourseCardComponent>",
+          "defaultValue": "(args: CourseCardComponent) => ({\n  props: args,\n})"
+        }
       ]
     },
     "groupedFunctions": {
@@ -1111,6 +1173,16 @@
         "status": "low"
       },
       {
+        "filePath": "src/stories/Course-card.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Template",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
         "filePath": "src/stories/Header.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
@@ -1178,6 +1250,15 @@
         "coveragePercent": 85,
         "coverageCount": "6/7",
         "status": "very-good"
+      },
+      {
+        "filePath": "src/stories/components/course-card/course-card.component.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "CourseCardComponent",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
       },
       {
         "filePath": "src/stories/header.component.ts",
