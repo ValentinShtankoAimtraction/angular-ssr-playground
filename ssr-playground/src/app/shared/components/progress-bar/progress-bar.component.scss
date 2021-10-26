@@ -1,26 +1,51 @@
-$progressBarBackgroundColor: #eee;
+$progressBarBackgroundColor: #fff;
+$progressBarSmallBackground: transparentize(black, .8);
 $progressBarActiveColor: #1FCC3B;
-$progressBarColor: #DBDEED;
+$progressBarColor: transparentize(black, .9);
+$progressBarBorderColor: #fff;
+$progressBarBorderRadius: 10px;
+$dividerWidth: 1px;
+$gridUnit: 1px;
 
-.ui-progress-bar--container {
+.ui-progress-bar {
   display: flex;
-  height: 15px;
-  border: 1px solid $progressBarColor;
-  background-color: $progressBarBackgroundColor;
   position: relative;
   box-sizing: border-box;
   align-items: center;
-  border-radius: 10px;
-  padding: 1px;
+  border-radius: $progressBarBorderRadius;
+
+  &.ui-progress-bar--small {
+    background-color: $progressBarSmallBackground;
+    height: 10px;
+
+    .ui-progress-bar--value {
+      border-radius: $progressBarBorderRadius;
+    }
+  }
+
+  &.ui-progress-bar--medium {
+
+    //background-color: $progressBarBackgroundColor;
+    height: 15px;
+  }
+
+  &.ui-progress-bar--border {
+    .ui-progress-bar--inner-container {
+      left: $gridUnit;
+      right: $gridUnit;
+      top: $gridUnit;
+      bottom: $gridUnit;
+    }
+
+    border: 1px solid $progressBarColor;
+  }
 
 
   .ui-progress-bar--inner-container {
     position: absolute;
-    left: 1px;
-    right: 1px;
-    top: 1px;
-    bottom: 1px;
-    border-radius: 10px;
+    left: 0;
+    right: 0;
+    border-radius: $progressBarBorderRadius;
     overflow: hidden;
 
     .ui-progress-bar--value {
@@ -33,20 +58,21 @@ $progressBarColor: #DBDEED;
 
   .ui-progress-bar--separator-container {
     position: absolute;
-    left: 1px;
     display: grid;
     grid-auto-flow: column;
     justify-content: space-evenly;
     border-radius: 10px;
     background-color: $progressBarColor;
     box-sizing: border-box;
-    top: 1px;
-    bottom: 1px;
-    right: 1px;
+
+    left: $gridUnit;
+    top: $gridUnit;
+    bottom: $gridUnit;
+    right: $gridUnit;
 
     .ui-progress-bar--separator {
       height: 100%;
-      width: 1px;
+      width: $dividerWidth;
       background-color: $progressBarBackgroundColor;
       z-index: 1;
     }

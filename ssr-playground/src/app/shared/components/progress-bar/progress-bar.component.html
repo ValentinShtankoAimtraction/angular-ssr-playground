@@ -1,4 +1,4 @@
-<div class="ui-progress-bar--container">
+<div [ngClass]="classes">
   <ng-container *ngIf="separated">
     <div class="ui-progress-bar--separator-container">
       <div class="ui-progress-bar--separator" *ngFor="let one of _slices"></div>

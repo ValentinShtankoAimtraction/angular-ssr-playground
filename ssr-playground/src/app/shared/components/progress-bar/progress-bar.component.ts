@@ -42,4 +42,17 @@ export class ProgressBar {
     }
     this._slices = Array(slices - 1).fill(0);
   }
+
+  @Input()
+  size: 'small' | 'medium' | 'large' = 'medium';
+
+  @Input()
+  border: boolean = false;
+
+  public get classes(): string[] {
+    const border = this.border ? 'ui-progress-bar--border' : '';
+    return ['ui-progress-bar', `ui-progress-bar--${this.size}`, border].filter(
+      (x) => !!x
+    );
+  }
 }
