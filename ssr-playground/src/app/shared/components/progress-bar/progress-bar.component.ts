@@ -49,10 +49,17 @@ export class ProgressBar {
   @Input()
   border: boolean = false;
 
+  @Input()
+  showText: boolean = false;
+
   public get classes(): string[] {
     const border = this.border ? 'ui-progress-bar--border' : '';
-    return ['ui-progress-bar', `ui-progress-bar--${this.size}`, border].filter(
-      (x) => !!x
-    );
+    const separated = this.separated ? 'ui-progress-bar--separated' : '';
+    return [
+      'ui-progress-bar',
+      `ui-progress-bar--${this.size}`,
+      border,
+      separated,
+    ].filter((x) => !!x);
   }
 }

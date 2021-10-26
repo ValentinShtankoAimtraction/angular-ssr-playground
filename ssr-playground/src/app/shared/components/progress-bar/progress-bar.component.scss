@@ -1,5 +1,4 @@
 $progressBarBackgroundColor: #fff;
-$progressBarSmallBackground: transparentize(black, .8);
 $progressBarActiveColor: #1FCC3B;
 $progressBarColor: transparentize(black, .9);
 $progressBarBorderColor: #fff;
@@ -14,28 +13,43 @@ $gridUnit: 1px;
   align-items: center;
   border-radius: $progressBarBorderRadius;
 
-  &.ui-progress-bar--small {
-    background-color: $progressBarSmallBackground;
-    height: 10px;
-
+  &:not(.ui-progress-bar--separated) {
     .ui-progress-bar--value {
       border-radius: $progressBarBorderRadius;
     }
   }
 
-  &.ui-progress-bar--medium {
+  &.ui-progress-bar--small {
+    height: 10px;
 
-    //background-color: $progressBarBackgroundColor;
+    .ui-progress-bar--value {
+      height: 6px;
+    }
+  }
+
+  &.ui-progress-bar--medium {
     height: 15px;
+
+    .ui-progress-bar--value {
+      height: 11px;
+    }
+  }
+
+  &.ui-progress-bar--large {
+    height: 18px;
+
+    .ui-progress-bar--value {
+      height: 14px;
+    }
+  }
+
+  &:not(.ui-progress-bar--border):not(.ui-progress-bar--separated) {
+    .ui-progress-bar--inner-container {
+      background-color: $progressBarColor;
+    }
   }
 
   &.ui-progress-bar--border {
-    .ui-progress-bar--inner-container {
-      left: $gridUnit;
-      right: $gridUnit;
-      top: $gridUnit;
-      bottom: $gridUnit;
-    }
 
     border: 1px solid $progressBarColor;
   }
@@ -50,11 +64,29 @@ $gridUnit: 1px;
 
     .ui-progress-bar--value {
       display: flex;
-      height: 11px;
       background-color: $progressBarActiveColor;
       transition: width ease-in-out .5s;
     }
   }
+
+  &:not(.ui-progress-bar--border) {
+    .ui-progress-bar--separator-container {
+      left: 2px;
+      top: 2px;
+      bottom: 2px;
+      right: 2px;
+    }
+  }
+
+  &.ui-progress-bar--border {
+    .ui-progress-bar--separator-container {
+      left: $gridUnit;
+      top: $gridUnit;
+      bottom: $gridUnit;
+      right: $gridUnit;
+    }
+  }
+
 
   .ui-progress-bar--separator-container {
     position: absolute;
@@ -65,11 +97,6 @@ $gridUnit: 1px;
     background-color: $progressBarColor;
     box-sizing: border-box;
 
-    left: $gridUnit;
-    top: $gridUnit;
-    bottom: $gridUnit;
-    right: $gridUnit;
-
     .ui-progress-bar--separator {
       height: 100%;
       width: $dividerWidth;
@@ -77,4 +104,25 @@ $gridUnit: 1px;
       z-index: 1;
     }
   }
+}
+
+.ui-progress-bar--text-container {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  .ui-progress-bar--text-value {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    margin-left: 5px;
+  }
+}
+
+.ui-progress-bar--left-value {
+  color: #5B6273;
 }

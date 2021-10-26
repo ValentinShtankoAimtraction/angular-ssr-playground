@@ -4,15 +4,6 @@ import {Button} from '@shared/components';
 export default {
   title: 'Components/Forms/Button',
   component: Button,
-  parameters: {
-    backgrounds: {
-      values: [
-        {name: 'lightgray', value: '#EBF8FF'},
-        {name: 'green', value: '#0f0'},
-        {name: 'blue', value: '#00f'},
-      ],
-    },
-  },
 } as Meta;
 
 const Template: Story<Button> = (args: Button) => ({

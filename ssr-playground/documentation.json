@@ -60,7 +60,7 @@
     },
     {
       "name": "Button",
-      "id": "component-Button-69b8acbeb27ee5673536e3440ee4e35e",
+      "id": "component-Button-5f717163a5a84ca01aca5630f5f6101a",
       "file": "src/app/shared/components/button/button.component.ts",
       "encapsulation": [],
       "entryComponents": [],
@@ -84,15 +84,15 @@
           "deprecationMessage": "",
           "jsdoctags": [
             {
-              "pos": 561,
-              "end": 574,
+              "pos": 559,
+              "end": 572,
               "flags": 4227072,
               "modifierFlagsCache": 0,
               "transformFlags": 0,
               "kind": 322,
               "tagName": {
-                "pos": 562,
-                "end": 570,
+                "pos": 560,
+                "end": 568,
                 "flags": 4227072,
                 "modifierFlagsCache": 0,
                 "transformFlags": 0,
@@ -114,15 +114,15 @@
           "deprecationMessage": "",
           "jsdoctags": [
             {
-              "pos": 473,
-              "end": 486,
+              "pos": 471,
+              "end": 484,
               "flags": 4227072,
               "modifierFlagsCache": 0,
               "transformFlags": 0,
               "kind": 322,
               "tagName": {
-                "pos": 474,
-                "end": 482,
+                "pos": 472,
+                "end": 480,
                 "flags": 4227072,
                 "modifierFlagsCache": 0,
                 "transformFlags": 0,
@@ -202,7 +202,7 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\n@Component({\n  selector: 'ui-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n})\nexport class Button {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Approve';\n\n  /**\n   * disabled property\n   *\n   * @required\n   */\n  @Input()\n  disabled = false;\n\n  private _outline = false;\n  /**\n   * outline property\n   *\n   */\n  @Input()\n  set outline(outline: boolean) {\n    this._outline = outline;\n  }\n\n  get outline(): boolean {\n    return this._outline;\n  }\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'ui-button--primary' : 'ui-button--secondary';\n    const disabled = this.disabled ? 'ui-button--disabled' : '';\n    const outline = this.outline ? 'ui-button--outline' : '';\n    return ['ui-button', `ui-button--${this.size}`, mode, disabled, outline];\n  }\n}\n",
+      "sourceCode": "import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';\n\n@Component({\n  selector: 'ui-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n})\nexport class Button {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Approve';\n\n  /**\n   * disabled property\n   *\n   * @required\n   */\n  @Input()\n  disabled = false;\n\n  private _outline = false;\n  /**\n   * outline property\n   *\n   */\n  @Input()\n  set outline(outline: boolean) {\n    this._outline = outline;\n  }\n\n  get outline(): boolean {\n    return this._outline;\n  }\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'ui-button--primary' : 'ui-button--secondary';\n    const disabled = this.disabled ? 'ui-button--disabled' : '';\n    const outline = this.outline ? 'ui-button--outline' : '';\n    return ['ui-button', `ui-button--${this.size}`, mode, disabled, outline];\n  }\n}\n",
       "assetsDirs": [],
       "styleUrlsData": [
         {
@@ -264,7 +264,7 @@
     },
     {
       "name": "HeaderComponent",
-      "id": "component-HeaderComponent-b6348f2d9c56d33b6ee411ddc2e39cf3",
+      "id": "component-HeaderComponent-c92fd8f6dcbbbab32518285960d473de",
       "file": "src/stories/header.component.ts",
       "encapsulation": [],
       "entryComponents": [],
@@ -276,7 +276,7 @@
         "./header.css"
       ],
       "styles": [],
-      "template": "<header>   <div class=\"wrapper\">\n     <div>\n       <svg\n         width=\"32\"\n         height=\"32\"\n         viewBox=\"0 0 32 32\"\n         xmlns=\"http://www.w3.org/2000/svg\"\n       >\n         <g fill=\"none\" fillRule=\"evenodd\">\n           <path\n             d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n             fill=\"#FFF\"\n           />\n           <path\n             d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n             fill=\"#555AB9\"\n           />\n           <path\n             d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n             fill=\"#91BAF8\"\n           />\n         </g>\n       </svg>\n       <h1>Acme</h1>\n     </div>\n     <div></div>\n   </div>\n </header>",
+      "template": "<header>\n  <div class=\"wrapper\">\n    <div>\n      <svg\n        width=\"32\"\n        height=\"32\"\n        viewBox=\"0 0 32 32\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n      >\n        <g fill=\"none\" fillRule=\"evenodd\">\n          <path\n            d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n            fill=\"#FFF\"\n          />\n          <path\n            d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n            fill=\"#555AB9\"\n          />\n          <path\n            d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n            fill=\"#91BAF8\"\n          />\n        </g>\n      </svg>\n      <h1>Acme</h1>\n    </div>\n    <div></div>\n  </div>\n</header>",
       "templateUrl": [],
       "viewProviders": [],
       "inputsClass": [
@@ -285,7 +285,7 @@
           "defaultValue": "null",
           "deprecated": false,
           "deprecationMessage": "",
-          "line": 38,
+          "line": 39,
           "type": ""
         }
       ],
@@ -295,7 +295,7 @@
           "defaultValue": "new EventEmitter<Event>()",
           "deprecated": false,
           "deprecationMessage": "",
-          "line": 47,
+          "line": 48,
           "type": "EventEmitter"
         },
         {
@@ -303,7 +303,7 @@
           "defaultValue": "new EventEmitter<Event>()",
           "deprecated": false,
           "deprecationMessage": "",
-          "line": 41,
+          "line": 42,
           "type": "EventEmitter"
         },
         {
@@ -311,7 +311,7 @@
           "defaultValue": "new EventEmitter<Event>()",
           "deprecated": false,
           "deprecationMessage": "",
-          "line": 44,
+          "line": 45,
           "type": "EventEmitter"
         }
       ],
@@ -324,7 +324,7 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-header',\n  template: ` <header>\n    <div class=\"wrapper\">\n      <div>\n        <svg\n          width=\"32\"\n          height=\"32\"\n          viewBox=\"0 0 32 32\"\n          xmlns=\"http://www.w3.org/2000/svg\"\n        >\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div></div>\n    </div>\n  </header>`,\n  styleUrls: ['./header.css'],\n})\nexport default class HeaderComponent {\n  @Input()\n  user: unknown = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n",
+      "sourceCode": "import {Component, Input, Output, EventEmitter} from '@angular/core';\n\n@Component({\n  selector: 'storybook-header',\n  template: `\n    <header>\n      <div class=\"wrapper\">\n        <div>\n          <svg\n            width=\"32\"\n            height=\"32\"\n            viewBox=\"0 0 32 32\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <g fill=\"none\" fillRule=\"evenodd\">\n              <path\n                d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n                fill=\"#FFF\"\n              />\n              <path\n                d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n                fill=\"#555AB9\"\n              />\n              <path\n                d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n                fill=\"#91BAF8\"\n              />\n            </g>\n          </svg>\n          <h1>Acme</h1>\n        </div>\n        <div></div>\n      </div>\n    </header>`,\n  styleUrls: ['./header.css'],\n})\nexport default class HeaderComponent {\n  @Input()\n  user: unknown = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n",
       "assetsDirs": [],
       "styleUrlsData": [
         {
@@ -408,7 +408,7 @@
     },
     {
       "name": "ProgressBar",
-      "id": "component-ProgressBar-4fab7a6c4e4a07ffaf16f10b6ad37827",
+      "id": "component-ProgressBar-c507437bcb85108b04a8bc532bcf501b",
       "file": "src/app/shared/components/progress-bar/progress-bar.component.ts",
       "changeDetection": "ChangeDetectionStrategy.OnPush",
       "encapsulation": [],
@@ -427,11 +427,44 @@
       "viewProviders": [],
       "inputsClass": [
         {
+          "name": "border",
+          "defaultValue": "false",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 50,
+          "type": "boolean"
+        },
+        {
           "name": "maxValue",
           "defaultValue": "0",
           "deprecated": false,
           "deprecationMessage": "",
-          "line": 19,
+          "line": 21,
+          "type": "number"
+        },
+        {
+          "name": "separated",
+          "defaultValue": "false",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 31,
+          "type": "boolean"
+        },
+        {
+          "name": "size",
+          "defaultValue": "'medium'",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 47,
+          "type": "\"small\" | \"medium\" | \"large\""
+        },
+        {
+          "name": "slices",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "rawdescription": "count of slices (limit: 100)",
+          "description": "<p>count of slices (limit: 100)</p>\n",
+          "line": 39,
           "type": "number"
         },
         {
@@ -439,24 +472,24 @@
           "defaultValue": "0",
           "deprecated": false,
           "deprecationMessage": "",
-          "line": 16,
+          "line": 18,
           "type": "number"
         }
       ],
       "outputsClass": [],
-      "propertiesClass": [],
-      "methodsClass": [
+      "propertiesClass": [
         {
-          "name": "getProgress",
-          "args": [],
-          "optional": false,
-          "returnType": "number",
-          "typeParameters": [],
-          "line": 21,
+          "name": "_slices",
+          "defaultValue": "[]",
           "deprecated": false,
-          "deprecationMessage": ""
+          "deprecationMessage": "",
+          "type": "Array<>",
+          "optional": false,
+          "description": "",
+          "line": 33
         }
       ],
+      "methodsClass": [],
       "deprecated": false,
       "deprecationMessage": "",
       "hostBindings": [],
@@ -464,16 +497,68 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import {\n  Component,\n  OnInit,\n  ChangeDetectionStrategy,\n  Input,\n} from '@angular/core';\n\n@Component({\n  selector: 'ui-progress-bar',\n  templateUrl: './progress-bar.component.html',\n  styleUrls: ['./progress-bar.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ProgressBar {\n  @Input()\n  value: number = 0;\n\n  @Input()\n  maxValue: number = 0;\n\n  getProgress(): number {\n    if (!this.value || !this.maxValue) {\n      return 0;\n    }\n    return (this.maxValue / this.value) * 100;\n  }\n}\n",
+      "sourceCode": "import {\n  Component,\n  OnInit,\n  ChangeDetectionStrategy,\n  Input,\n} from '@angular/core';\n\nexport const MAX_SLICES = 100;\n\n@Component({\n  selector: 'ui-progress-bar',\n  templateUrl: './progress-bar.component.html',\n  styleUrls: ['./progress-bar.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ProgressBar {\n  @Input()\n  value: number = 0;\n\n  @Input()\n  maxValue: number = 0;\n\n  get progress(): number {\n    if (!this.value || !this.maxValue) {\n      return 0;\n    }\n    return (this.value / this.maxValue) * 100;\n  }\n\n  @Input()\n  separated = false;\n\n  _slices: Array<null> = [];\n  /**\n   * count of slices (limit: 100)\n   *\n   */\n  @Input()\n  set slices(slices: number) {\n    if (slices >= MAX_SLICES) {\n      slices = MAX_SLICES;\n    }\n    this._slices = Array(slices - 1).fill(0);\n  }\n\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  @Input()\n  border: boolean = false;\n\n  public get classes(): string[] {\n    const border = this.border ? 'ui-progress-bar--border' : '';\n    return ['ui-progress-bar', `ui-progress-bar--${this.size}`, border].filter(\n      (x) => !!x\n    );\n  }\n}\n",
       "assetsDirs": [],
       "styleUrlsData": [
         {
-          "data": "",
+          "data": "$progressBarBackgroundColor: #fff;\n$progressBarSmallBackground: transparentize(black, .8);\n$progressBarActiveColor: #1FCC3B;\n$progressBarColor: transparentize(black, .9);\n$progressBarBorderColor: #fff;\n$progressBarBorderRadius: 10px;\n$dividerWidth: 1px;\n$gridUnit: 1px;\n\n.ui-progress-bar {\n  display: flex;\n  position: relative;\n  box-sizing: border-box;\n  align-items: center;\n  border-radius: $progressBarBorderRadius;\n\n  &.ui-progress-bar--small {\n    background-color: $progressBarSmallBackground;\n    height: 10px;\n\n    .ui-progress-bar--value {\n      border-radius: $progressBarBorderRadius;\n    }\n  }\n\n  &.ui-progress-bar--medium {\n\n    //background-color: $progressBarBackgroundColor;\n    height: 15px;\n\n\n    &:not(.ui-progress-bar--border):not(.ui-progress-bar--separated) {\n      .ui-progress-bar--inner-container {\n        background-color: $progressBarColor;\n      }\n    }\n  }\n\n  &.ui-progress-bar--border {\n    .ui-progress-bar--inner-container {\n      left: $gridUnit;\n      right: $gridUnit;\n      top: $gridUnit;\n      bottom: $gridUnit;\n    }\n\n    border: 1px solid $progressBarColor;\n  }\n\n\n  .ui-progress-bar--inner-container {\n    position: absolute;\n    left: 0;\n    right: 0;\n    border-radius: $progressBarBorderRadius;\n    overflow: hidden;\n\n    .ui-progress-bar--value {\n      display: flex;\n      height: 11px;\n      background-color: $progressBarActiveColor;\n      transition: width ease-in-out .5s;\n    }\n  }\n\n  .ui-progress-bar--separator-container {\n    position: absolute;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-evenly;\n    border-radius: 10px;\n    background-color: $progressBarColor;\n    box-sizing: border-box;\n\n    left: $gridUnit;\n    top: $gridUnit;\n    bottom: $gridUnit;\n    right: $gridUnit;\n\n    .ui-progress-bar--separator {\n      height: 100%;\n      width: $dividerWidth;\n      background-color: $progressBarBackgroundColor;\n      z-index: 1;\n    }\n  }\n}\n",
           "styleUrl": "./progress-bar.component.scss"
         }
       ],
       "stylesData": "",
-      "templateData": "<div class=\"ui-progress-bar--container\">\n  <div class=\"ui-progress-bar--value\" style=\"width: getProgress()\"></div>\n</div>\n"
+      "accessors": {
+        "progress": {
+          "name": "progress",
+          "getSignature": {
+            "name": "progress",
+            "type": "number",
+            "returnType": "number",
+            "line": 23
+          }
+        },
+        "slices": {
+          "name": "slices",
+          "setSignature": {
+            "name": "slices",
+            "type": "void",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "args": [
+              {
+                "name": "slices",
+                "type": "number",
+                "deprecated": false,
+                "deprecationMessage": ""
+              }
+            ],
+            "returnType": "void",
+            "line": 39,
+            "rawdescription": "count of slices (limit: 100)",
+            "description": "<p>count of slices (limit: 100)</p>\n",
+            "jsdoctags": [
+              {
+                "name": "slices",
+                "type": "number",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "tagName": {
+                  "text": "param"
+                }
+              }
+            ]
+          }
+        },
+        "classes": {
+          "name": "classes",
+          "getSignature": {
+            "name": "classes",
+            "type": "[]",
+            "returnType": "string[]",
+            "line": 52
+          }
+        }
+      },
+      "templateData": "<div [ngClass]=\"classes\">\n  <ng-container *ngIf=\"separated\">\n    <div class=\"ui-progress-bar--separator-container\">\n      <div class=\"ui-progress-bar--separator\" *ngFor=\"let one of _slices\"></div>\n    </div>\n  </ng-container>\n  <div class=\"ui-progress-bar--inner-container\">\n    <div class=\"ui-progress-bar--value\" [style.width]=\"progress + '%'\"></div>\n  </div>\n</div>\n"
     }
   ],
   "modules": [
@@ -607,13 +692,13 @@
     },
     {
       "name": "ButtonModule",
-      "id": "module-ButtonModule-a24817158294d7ee843314ec3e88edc6",
+      "id": "module-ButtonModule-db3ed44939b38e9ca9d5defcf1c1cdf7",
       "description": "",
       "deprecationMessage": "",
       "deprecated": false,
       "file": "src/app/shared/components/button/button.module.ts",
       "methods": [],
-      "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { Button } from './button.component';\n\n@NgModule({\n  declarations: [Button],\n  imports: [CommonModule],\n  exports: [Button],\n})\nexport class ButtonModule {}\n",
+      "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {Button} from './button.component';\n\n@NgModule({\n  declarations: [Button],\n  imports: [CommonModule],\n  exports: [Button],\n})\nexport class ButtonModule {\n}\n",
       "children": [
         {
           "type": "providers",
@@ -651,13 +736,13 @@
     },
     {
       "name": "ProgressBarModule",
-      "id": "module-ProgressBarModule-261f2cb237ac9dd207efd7b5ab6081b9",
+      "id": "module-ProgressBarModule-13bd1205a130fc8e04c774b9dd15bbb5",
       "description": "",
       "deprecationMessage": "",
       "deprecated": false,
       "file": "src/app/shared/components/progress-bar/progress-bar.module.ts",
       "methods": [],
-      "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ProgressBar } from './progress-bar.component';\n\n@NgModule({\n  declarations: [ProgressBar],\n  imports: [CommonModule],\n  exports: [ProgressBar],\n})\nexport class ProgressBarModule {}\n",
+      "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {ProgressBar} from './progress-bar.component';\n\n@NgModule({\n  declarations: [ProgressBar],\n  imports: [CommonModule],\n  exports: [ProgressBar],\n})\nexport class ProgressBarModule {\n}\n",
       "children": [
         {
           "type": "providers",
@@ -695,13 +780,13 @@
     },
     {
       "name": "SharedModule",
-      "id": "module-SharedModule-52a54078cc3019049f7abf2c5f609d28",
+      "id": "module-SharedModule-ba9da72e0eb86b600fa66dda4e2ca8b8",
       "description": "",
       "deprecationMessage": "",
       "deprecated": false,
       "file": "src/app/shared/shared.module.ts",
       "methods": [],
-      "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonModule, ProgressBarModule } from './components';\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule],\n  exports: [ButtonModule, ProgressBarModule],\n})\nexport class SharedModule {}\n",
+      "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {ButtonModule, ProgressBarModule} from './components';\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule],\n  exports: [ButtonModule, ProgressBarModule],\n})\nexport class SharedModule {\n}\n",
       "children": [
         {
           "type": "providers",
@@ -749,6 +834,16 @@
         "type": "NodeRequire"
       },
       {
+        "name": "ALotSlices",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/stories/ProgressBar.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
+      },
+      {
         "name": "context",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -757,6 +852,16 @@
         "deprecationMessage": "",
         "type": "",
         "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/stories/ProgressBar.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
       },
       {
         "name": "Disabled",
@@ -789,10 +894,10 @@
         "defaultValue": "{\n  production: false\n}"
       },
       {
-        "name": "Full",
+        "name": "Large",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "src/stories/ProgressBar.stories.ts",
+        "file": "src/stories/Button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
@@ -802,7 +907,7 @@
         "name": "Large",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "src/stories/Button.stories.ts",
+        "file": "src/stories/ProgressBar.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
@@ -859,6 +964,26 @@
         "defaultValue": "__non_webpack_require__.main"
       },
       {
+        "name": "MAX_SLICES",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/app/shared/components/progress-bar/progress-bar.component.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "number",
+        "defaultValue": "100"
+      },
+      {
+        "name": "Medium",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/stories/ProgressBar.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
+      },
+      {
         "name": "moduleFilename",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -912,6 +1037,16 @@
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "src/stories/Button.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
+      },
+      {
+        "name": "Small",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/stories/ProgressBar.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
@@ -1024,6 +1159,68 @@
           "deprecationMessage": "",
           "type": "",
           "defaultValue": "mainModule && mainModule.filename || ''"
+        }
+      ],
+      "src/stories/ProgressBar.stories.ts": [
+        {
+          "name": "ALotSlices",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/stories/ProgressBar.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "Template.bind({})"
+        },
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/stories/ProgressBar.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "Template.bind({})"
+        },
+        {
+          "name": "Large",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/stories/ProgressBar.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "Template.bind({})"
+        },
+        {
+          "name": "Medium",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/stories/ProgressBar.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "Template.bind({})"
+        },
+        {
+          "name": "Small",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/stories/ProgressBar.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "Template.bind({})"
+        },
+        {
+          "name": "Template",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/stories/ProgressBar.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story<ProgressBar>",
+          "defaultValue": "(args: ProgressBar) => ({\n  props: args,\n})"
         }
       ],
       "src/test.ts": [
@@ -1143,28 +1340,6 @@
           "defaultValue": "{\n  production: false\n}"
         }
       ],
-      "src/stories/ProgressBar.stories.ts": [
-        {
-          "name": "Full",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "src/stories/ProgressBar.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "",
-          "defaultValue": "Template.bind({})"
-        },
-        {
-          "name": "Template",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "src/stories/ProgressBar.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story<ProgressBar>",
-          "defaultValue": "(args: ProgressBar) => ({\n  props: args,\n})"
-        }
-      ],
       "src/stories/Header.stories.ts": [
         {
           "name": "LoggedIn",
@@ -1227,6 +1402,18 @@
           "deprecationMessage": "",
           "type": "Story<Page>",
           "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+        }
+      ],
+      "src/app/shared/components/progress-bar/progress-bar.component.ts": [
+        {
+          "name": "MAX_SLICES",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/app/shared/components/progress-bar/progress-bar.component.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "number",
+          "defaultValue": "100"
         }
       ]
     },
@@ -1349,8 +1536,18 @@
         "type": "component",
         "linktype": "component",
         "name": "ProgressBar",
+        "coveragePercent": 12,
+        "coverageCount": "1/8",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/shared/components/progress-bar/progress-bar.component.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "MAX_SLICES",
         "coveragePercent": 0,
-        "coverageCount": "0/4",
+        "coverageCount": "0/1",
         "status": "low"
       },
       {
@@ -1518,7 +1715,47 @@
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "Full",
+        "name": "ALotSlices",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/stories/ProgressBar.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/stories/ProgressBar.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Large",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/stories/ProgressBar.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Medium",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/stories/ProgressBar.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Small",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"

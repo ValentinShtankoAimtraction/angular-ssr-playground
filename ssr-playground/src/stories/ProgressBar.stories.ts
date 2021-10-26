@@ -17,6 +17,7 @@ Default.args = {
   separated: true,
   slices: 9,
   border: true,
+  showText: true,
 };
 
 export const ALotSlices = Template.bind({});
@@ -33,4 +34,16 @@ Small.args = {
   value: 33,
   maxValue: 100,
   size: 'small',
+};
+export const Medium = Template.bind({});
+Medium.args = {
+  value: 33,
+  maxValue: 100,
+  size: 'medium',
+};
+export const Large = Template.bind({});
+Large.args = {
+  value: 33,
+  maxValue: 100,
+  size: 'large',
 };
