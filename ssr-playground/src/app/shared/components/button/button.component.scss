@@ -1,4 +1,4 @@
-.storybook-button {
+.ui-button {
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
   border: 0;
@@ -6,43 +6,44 @@
   cursor: pointer;
   display: inline-block;
   box-sizing: border-box;
+  transition: ease-in-out .3s;
 
-  &:hover:not(.storybook-button--disabled) {
+  &:not(.ui-button--disabled):not(.ui-button--outline) {
     box-shadow: 0 2px 8px #0D4B7C44;
   }
 }
 
-.storybook-button--primary {
+.ui-button--primary {
   color: white;
   background-color: #2DA1FD;
   border: 2px solid #2DA1FD;
 }
 
-.storybook-button--secondary {
+.ui-button--secondary {
   color: white;
   background-color: #334587;
   border: 2px solid #334587;
 }
 
-.storybook-button--small {
+.ui-button--small {
   font-size: 12px;
   padding: 5px 10px;
   text-transform: uppercase;
 }
 
-.storybook-button--medium {
+.ui-button--medium {
   font-size: 14px;
   line-height: 20px;
   padding: 7px 15px;
 }
 
-.storybook-button--large {
+.ui-button--large {
   font-size: 16px;
   font-weight: 500;
   padding: 14px 22px;
 }
 
-.storybook-button--disabled {
+.ui-button--disabled {
   border-color: transparent !important;
   box-shadow: unset;
   background-color: #8F949F70 !important;
@@ -50,17 +51,17 @@
   cursor: not-allowed;
 }
 
-.storybook-button--outline {
+.ui-button--outline {
   border: 2px solid;
   box-shadow: unset;
   background: transparent;
 
-  &.storybook-button--primary {
+  &.ui-button--primary {
     border-color: #35A9EF;
     color: #35A9EF;
   }
 
-  &.storybook-button--secondary {
+  &.ui-button--secondary {
     border-color: #334587;
     color: #334587;
   }

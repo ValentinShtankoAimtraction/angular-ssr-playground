@@ -1,7 +1,7 @@
 import {moduleMetadata, Story, Meta} from '@storybook/angular';
 import {CommonModule} from '@angular/common';
 
-import Button from './button.component';
+import {Button} from '@shared/components';
 import Header from './header.component';
 import Page from './page.component';
 
