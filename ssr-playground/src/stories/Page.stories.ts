@@ -8,7 +8,7 @@ import Page from './page.component';
 import * as HeaderStories from './Header.stories';
 
 export default {
-  title: 'Example/Page',
+  title: 'Pages/Page',
   component: Page,
   decorators: [
     moduleMetadata({

@@ -1,7 +1,6 @@
 import {moduleMetadata} from '@storybook/angular';
 import {CommonModule} from '@angular/common';
-// also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
-import {Story, Meta} from '@storybook/angular/types-6-0';
+import {Story, Meta} from '@storybook/angular';
 
 import {Button} from '@shared/components';
 import Header from './header.component';

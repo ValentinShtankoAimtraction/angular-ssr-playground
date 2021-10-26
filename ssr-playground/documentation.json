@@ -60,7 +60,7 @@
     },
     {
       "name": "Button",
-      "id": "component-Button-443cab1c706d9d86289fafb0bc482c01",
+      "id": "component-Button-69b8acbeb27ee5673536e3440ee4e35e",
       "file": "src/app/shared/components/button/button.component.ts",
       "encapsulation": [],
       "entryComponents": [],
@@ -139,12 +139,11 @@
         },
         {
           "name": "outline",
-          "defaultValue": "false",
           "deprecated": false,
           "deprecationMessage": "",
           "rawdescription": "outline property",
           "description": "<p>outline property</p>\n",
-          "line": 42,
+          "line": 43,
           "type": "boolean"
         },
         {
@@ -176,11 +175,25 @@
           "deprecationMessage": "",
           "rawdescription": "\n\nOptional click handler\n",
           "description": "<p>Optional click handler</p>\n",
-          "line": 48,
+          "line": 55,
           "type": "EventEmitter"
         }
       ],
-      "propertiesClass": [],
+      "propertiesClass": [
+        {
+          "name": "_outline",
+          "defaultValue": "false",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "optional": false,
+          "description": "",
+          "line": 37,
+          "modifierKind": [
+            121
+          ]
+        }
+      ],
       "methodsClass": [],
       "deprecated": false,
       "deprecationMessage": "",
@@ -189,23 +202,61 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\n@Component({\n  selector: 'ui-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n})\nexport class Button {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Approve';\n\n  /**\n   * disabled property\n   *\n   * @required\n   */\n  @Input()\n  disabled = false;\n\n  /**\n   * outline property\n   *\n   */\n  @Input()\n  outline = false;\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary\n      ? 'storybook-button--primary'\n      : 'storybook-button--secondary';\n    const disabled = this.disabled ? 'storybook-button--disabled' : '';\n    const outline = this.outline ? 'storybook-button--outline' : '';\n    return [\n      'storybook-button',\n      `storybook-button--${this.size}`,\n      mode,\n      disabled,\n      outline,\n    ];\n  }\n}\n",
+      "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\n@Component({\n  selector: 'ui-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n})\nexport class Button {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Approve';\n\n  /**\n   * disabled property\n   *\n   * @required\n   */\n  @Input()\n  disabled = false;\n\n  private _outline = false;\n  /**\n   * outline property\n   *\n   */\n  @Input()\n  set outline(outline: boolean) {\n    this._outline = outline;\n  }\n\n  get outline(): boolean {\n    return this._outline;\n  }\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'ui-button--primary' : 'ui-button--secondary';\n    const disabled = this.disabled ? 'ui-button--disabled' : '';\n    const outline = this.outline ? 'ui-button--outline' : '';\n    return ['ui-button', `ui-button--${this.size}`, mode, disabled, outline];\n  }\n}\n",
       "assetsDirs": [],
       "styleUrlsData": [
         {
-          "data": ".storybook-button {\n  font-family: 'DM Sans', sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 4px;\n  cursor: pointer;\n  display: inline-block;\n  box-sizing: border-box;\n\n  &:hover:not(.storybook-button--disabled) {\n    box-shadow: 0 2px 8px #0D4B7C44;\n  }\n}\n\n.storybook-button--primary {\n  color: white;\n  background-color: #2DA1FD;\n  border: 2px solid #2DA1FD;\n}\n\n.storybook-button--secondary {\n  color: white;\n  background-color: #334587;\n  border: 2px solid #334587;\n}\n\n.storybook-button--small {\n  font-size: 12px;\n  padding: 5px 10px;\n  text-transform: uppercase;\n}\n\n.storybook-button--medium {\n  font-size: 14px;\n  line-height: 20px;\n  padding: 7px 15px;\n}\n\n.storybook-button--large {\n  font-size: 16px;\n  font-weight: 500;\n  padding: 14px 22px;\n}\n\n.storybook-button--disabled {\n  border-color: transparent !important;\n  box-shadow: unset;\n  background-color: #8F949F70 !important;\n  color: #fff !important;\n  cursor: not-allowed;\n}\n\n.storybook-button--outline {\n  border: 2px solid;\n  box-shadow: unset;\n  background: transparent;\n\n  &.storybook-button--primary {\n    border-color: #35A9EF;\n    color: #35A9EF;\n  }\n\n  &.storybook-button--secondary {\n    border-color: #334587;\n    color: #334587;\n  }\n}\n",
+          "data": ".ui-button {\n  font-family: 'DM Sans', sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 4px;\n  cursor: pointer;\n  display: inline-block;\n  box-sizing: border-box;\n  transition: ease-in-out .3s;\n\n  &:not(.ui-button--disabled):not(.ui-button--outline) {\n    box-shadow: 0 2px 8px #0D4B7C44;\n  }\n}\n\n.ui-button--primary {\n  color: white;\n  background-color: #2DA1FD;\n  border: 2px solid #2DA1FD;\n}\n\n.ui-button--secondary {\n  color: white;\n  background-color: #334587;\n  border: 2px solid #334587;\n}\n\n.ui-button--small {\n  font-size: 12px;\n  padding: 5px 10px;\n  text-transform: uppercase;\n}\n\n.ui-button--medium {\n  font-size: 14px;\n  line-height: 20px;\n  padding: 7px 15px;\n}\n\n.ui-button--large {\n  font-size: 16px;\n  font-weight: 500;\n  padding: 14px 22px;\n}\n\n.ui-button--disabled {\n  border-color: transparent !important;\n  box-shadow: unset;\n  background-color: #8F949F70 !important;\n  color: #fff !important;\n  cursor: not-allowed;\n}\n\n.ui-button--outline {\n  border: 2px solid;\n  box-shadow: unset;\n  background: transparent;\n\n  &.ui-button--primary {\n    border-color: #35A9EF;\n    color: #35A9EF;\n  }\n\n  &.ui-button--secondary {\n    border-color: #334587;\n    color: #334587;\n  }\n}\n",
           "styleUrl": "./button.component.scss"
         }
       ],
       "stylesData": "",
       "accessors": {
+        "outline": {
+          "name": "outline",
+          "setSignature": {
+            "name": "outline",
+            "type": "void",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "args": [
+              {
+                "name": "outline",
+                "type": "boolean",
+                "deprecated": false,
+                "deprecationMessage": ""
+              }
+            ],
+            "returnType": "void",
+            "line": 43,
+            "rawdescription": "outline property",
+            "description": "<p>outline property</p>\n",
+            "jsdoctags": [
+              {
+                "name": "outline",
+                "type": "boolean",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "tagName": {
+                  "text": "param"
+                }
+              }
+            ]
+          },
+          "getSignature": {
+            "name": "outline",
+            "type": "boolean",
+            "returnType": "boolean",
+            "line": 47
+          }
+        },
         "classes": {
           "name": "classes",
           "getSignature": {
             "name": "classes",
             "type": "[]",
             "returnType": "string[]",
-            "line": 50
+            "line": 57
           }
         }
       },
@@ -354,6 +405,75 @@
         }
       ],
       "stylesData": ""
+    },
+    {
+      "name": "ProgressBar",
+      "id": "component-ProgressBar-4fab7a6c4e4a07ffaf16f10b6ad37827",
+      "file": "src/app/shared/components/progress-bar/progress-bar.component.ts",
+      "changeDetection": "ChangeDetectionStrategy.OnPush",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "ui-progress-bar",
+      "styleUrls": [
+        "./progress-bar.component.scss"
+      ],
+      "styles": [],
+      "templateUrl": [
+        "./progress-bar.component.html"
+      ],
+      "viewProviders": [],
+      "inputsClass": [
+        {
+          "name": "maxValue",
+          "defaultValue": "0",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 19,
+          "type": "number"
+        },
+        {
+          "name": "value",
+          "defaultValue": "0",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 16,
+          "type": "number"
+        }
+      ],
+      "outputsClass": [],
+      "propertiesClass": [],
+      "methodsClass": [
+        {
+          "name": "getProgress",
+          "args": [],
+          "optional": false,
+          "returnType": "number",
+          "typeParameters": [],
+          "line": 21,
+          "deprecated": false,
+          "deprecationMessage": ""
+        }
+      ],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import {\n  Component,\n  OnInit,\n  ChangeDetectionStrategy,\n  Input,\n} from '@angular/core';\n\n@Component({\n  selector: 'ui-progress-bar',\n  templateUrl: './progress-bar.component.html',\n  styleUrls: ['./progress-bar.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ProgressBar {\n  @Input()\n  value: number = 0;\n\n  @Input()\n  maxValue: number = 0;\n\n  getProgress(): number {\n    if (!this.value || !this.maxValue) {\n      return 0;\n    }\n    return (this.maxValue / this.value) * 100;\n  }\n}\n",
+      "assetsDirs": [],
+      "styleUrlsData": [
+        {
+          "data": "",
+          "styleUrl": "./progress-bar.component.scss"
+        }
+      ],
+      "stylesData": "",
+      "templateData": "<div class=\"ui-progress-bar--container\">\n  <div class=\"ui-progress-bar--value\" style=\"width: getProgress()\"></div>\n</div>\n"
     }
   ],
   "modules": [
@@ -530,14 +650,58 @@
       ]
     },
     {
+      "name": "ProgressBarModule",
+      "id": "module-ProgressBarModule-261f2cb237ac9dd207efd7b5ab6081b9",
+      "description": "",
+      "deprecationMessage": "",
+      "deprecated": false,
+      "file": "src/app/shared/components/progress-bar/progress-bar.module.ts",
+      "methods": [],
+      "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ProgressBar } from './progress-bar.component';\n\n@NgModule({\n  declarations: [ProgressBar],\n  imports: [CommonModule],\n  exports: [ProgressBar],\n})\nexport class ProgressBarModule {}\n",
+      "children": [
+        {
+          "type": "providers",
+          "elements": []
+        },
+        {
+          "type": "declarations",
+          "elements": [
+            {
+              "name": "ProgressBar"
+            }
+          ]
+        },
+        {
+          "type": "imports",
+          "elements": []
+        },
+        {
+          "type": "exports",
+          "elements": [
+            {
+              "name": "ProgressBar"
+            }
+          ]
+        },
+        {
+          "type": "bootstrap",
+          "elements": []
+        },
+        {
+          "type": "classes",
+          "elements": []
+        }
+      ]
+    },
+    {
       "name": "SharedModule",
-      "id": "module-SharedModule-24d31318f8f9e599980665463b86719f",
+      "id": "module-SharedModule-52a54078cc3019049f7abf2c5f609d28",
       "description": "",
       "deprecationMessage": "",
       "deprecated": false,
       "file": "src/app/shared/shared.module.ts",
       "methods": [],
-      "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonModule } from './components';\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule],\n  exports: [ButtonModule],\n})\nexport class SharedModule {}\n",
+      "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonModule, ProgressBarModule } from './components';\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule],\n  exports: [ButtonModule, ProgressBarModule],\n})\nexport class SharedModule {}\n",
       "children": [
         {
           "type": "providers",
@@ -556,6 +720,9 @@
           "elements": [
             {
               "name": "ButtonModule"
+            },
+            {
+              "name": "ProgressBarModule"
             }
           ]
         },
@@ -620,6 +787,16 @@
         "deprecationMessage": "",
         "type": "object",
         "defaultValue": "{\n  production: false\n}"
+      },
+      {
+        "name": "Full",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/stories/ProgressBar.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
       },
       {
         "name": "Large",
@@ -692,6 +869,16 @@
         "defaultValue": "mainModule && mainModule.filename || ''"
       },
       {
+        "name": "Outline",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/stories/Button.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
+      },
+      {
         "name": "Primary",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -759,6 +946,16 @@
         "deprecationMessage": "",
         "type": "Story<Page>",
         "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+      },
+      {
+        "name": "Template",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/stories/ProgressBar.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story<ProgressBar>",
+        "defaultValue": "(args: ProgressBar) => ({\n  props: args,\n})"
       }
     ],
     "functions": [
@@ -872,6 +1069,16 @@
           "defaultValue": "Template.bind({})"
         },
         {
+          "name": "Outline",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/stories/Button.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "Template.bind({})"
+        },
+        {
           "name": "Primary",
           "ctype": "miscellaneous",
           "subtype": "variable",
@@ -934,6 +1141,28 @@
           "deprecationMessage": "",
           "type": "object",
           "defaultValue": "{\n  production: false\n}"
+        }
+      ],
+      "src/stories/ProgressBar.stories.ts": [
+        {
+          "name": "Full",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/stories/ProgressBar.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "Template.bind({})"
+        },
+        {
+          "name": "Template",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/stories/ProgressBar.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story<ProgressBar>",
+          "defaultValue": "(args: ProgressBar) => ({\n  props: args,\n})"
         }
       ],
       "src/stories/Header.stories.ts": [
@@ -1044,7 +1273,7 @@
   },
   "routes": [],
   "coverage": {
-    "count": 3,
+    "count": 2,
     "status": "low",
     "files": [
       {
@@ -1111,9 +1340,18 @@
         "type": "component",
         "linktype": "component",
         "name": "Button",
-        "coveragePercent": 85,
-        "coverageCount": "6/7",
-        "status": "very-good"
+        "coveragePercent": 75,
+        "coverageCount": "6/8",
+        "status": "good"
+      },
+      {
+        "filePath": "src/app/shared/components/progress-bar/progress-bar.component.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "ProgressBar",
+        "coveragePercent": 0,
+        "coverageCount": "0/4",
+        "status": "low"
       },
       {
         "filePath": "src/environments/environment.prod.ts",
@@ -1161,6 +1399,16 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "Large",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/stories/Button.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Outline",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
@@ -1257,6 +1505,26 @@
       },
       {
         "filePath": "src/stories/Page.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Template",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/stories/ProgressBar.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Full",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/stories/ProgressBar.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",

@@ -1,0 +1,10 @@
+<div class="ui-progress-bar--container">
+  <ng-container *ngIf="separated">
+    <div class="ui-progress-bar--separator-container">
+      <div class="ui-progress-bar--separator" *ngFor="let one of _slices"></div>
+    </div>
+  </ng-container>
+  <div class="ui-progress-bar--inner-container">
+    <div class="ui-progress-bar--value" [style.width]="progress + '%'"></div>
+  </div>
+</div>
