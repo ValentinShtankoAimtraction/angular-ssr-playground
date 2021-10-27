@@ -408,7 +408,7 @@
     },
     {
       "name": "ProgressBar",
-      "id": "component-ProgressBar-c507437bcb85108b04a8bc532bcf501b",
+      "id": "component-ProgressBar-0633adb5e6abdf81b6cbb2f762f65a2d",
       "file": "src/app/shared/components/progress-bar/progress-bar.component.ts",
       "changeDetection": "ChangeDetectionStrategy.OnPush",
       "encapsulation": [],
@@ -448,6 +448,14 @@
           "deprecated": false,
           "deprecationMessage": "",
           "line": 31,
+          "type": "boolean"
+        },
+        {
+          "name": "showText",
+          "defaultValue": "false",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 53,
           "type": "boolean"
         },
         {
@@ -497,11 +505,11 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import {\n  Component,\n  OnInit,\n  ChangeDetectionStrategy,\n  Input,\n} from '@angular/core';\n\nexport const MAX_SLICES = 100;\n\n@Component({\n  selector: 'ui-progress-bar',\n  templateUrl: './progress-bar.component.html',\n  styleUrls: ['./progress-bar.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ProgressBar {\n  @Input()\n  value: number = 0;\n\n  @Input()\n  maxValue: number = 0;\n\n  get progress(): number {\n    if (!this.value || !this.maxValue) {\n      return 0;\n    }\n    return (this.value / this.maxValue) * 100;\n  }\n\n  @Input()\n  separated = false;\n\n  _slices: Array<null> = [];\n  /**\n   * count of slices (limit: 100)\n   *\n   */\n  @Input()\n  set slices(slices: number) {\n    if (slices >= MAX_SLICES) {\n      slices = MAX_SLICES;\n    }\n    this._slices = Array(slices - 1).fill(0);\n  }\n\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  @Input()\n  border: boolean = false;\n\n  public get classes(): string[] {\n    const border = this.border ? 'ui-progress-bar--border' : '';\n    return ['ui-progress-bar', `ui-progress-bar--${this.size}`, border].filter(\n      (x) => !!x\n    );\n  }\n}\n",
+      "sourceCode": "import {\n  Component,\n  OnInit,\n  ChangeDetectionStrategy,\n  Input,\n} from '@angular/core';\n\nexport const MAX_SLICES = 100;\n\n@Component({\n  selector: 'ui-progress-bar',\n  templateUrl: './progress-bar.component.html',\n  styleUrls: ['./progress-bar.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ProgressBar {\n  @Input()\n  value: number = 0;\n\n  @Input()\n  maxValue: number = 0;\n\n  get progress(): number {\n    if (!this.value || !this.maxValue) {\n      return 0;\n    }\n    return (this.value / this.maxValue) * 100;\n  }\n\n  @Input()\n  separated = false;\n\n  _slices: Array<null> = [];\n  /**\n   * count of slices (limit: 100)\n   *\n   */\n  @Input()\n  set slices(slices: number) {\n    if (slices >= MAX_SLICES) {\n      slices = MAX_SLICES;\n    }\n    this._slices = Array(slices - 1).fill(0);\n  }\n\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  @Input()\n  border: boolean = false;\n\n  @Input()\n  showText: boolean = false;\n\n  public get classes(): string[] {\n    const border = this.border ? 'ui-progress-bar--border' : '';\n    const separated = this.separated ? 'ui-progress-bar--separated' : '';\n    return [\n      'ui-progress-bar',\n      `ui-progress-bar--${this.size}`,\n      border,\n      separated,\n    ].filter((x) => !!x);\n  }\n}\n",
       "assetsDirs": [],
       "styleUrlsData": [
         {
-          "data": "$progressBarBackgroundColor: #fff;\n$progressBarSmallBackground: transparentize(black, .8);\n$progressBarActiveColor: #1FCC3B;\n$progressBarColor: transparentize(black, .9);\n$progressBarBorderColor: #fff;\n$progressBarBorderRadius: 10px;\n$dividerWidth: 1px;\n$gridUnit: 1px;\n\n.ui-progress-bar {\n  display: flex;\n  position: relative;\n  box-sizing: border-box;\n  align-items: center;\n  border-radius: $progressBarBorderRadius;\n\n  &.ui-progress-bar--small {\n    background-color: $progressBarSmallBackground;\n    height: 10px;\n\n    .ui-progress-bar--value {\n      border-radius: $progressBarBorderRadius;\n    }\n  }\n\n  &.ui-progress-bar--medium {\n\n    //background-color: $progressBarBackgroundColor;\n    height: 15px;\n\n\n    &:not(.ui-progress-bar--border):not(.ui-progress-bar--separated) {\n      .ui-progress-bar--inner-container {\n        background-color: $progressBarColor;\n      }\n    }\n  }\n\n  &.ui-progress-bar--border {\n    .ui-progress-bar--inner-container {\n      left: $gridUnit;\n      right: $gridUnit;\n      top: $gridUnit;\n      bottom: $gridUnit;\n    }\n\n    border: 1px solid $progressBarColor;\n  }\n\n\n  .ui-progress-bar--inner-container {\n    position: absolute;\n    left: 0;\n    right: 0;\n    border-radius: $progressBarBorderRadius;\n    overflow: hidden;\n\n    .ui-progress-bar--value {\n      display: flex;\n      height: 11px;\n      background-color: $progressBarActiveColor;\n      transition: width ease-in-out .5s;\n    }\n  }\n\n  .ui-progress-bar--separator-container {\n    position: absolute;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-evenly;\n    border-radius: 10px;\n    background-color: $progressBarColor;\n    box-sizing: border-box;\n\n    left: $gridUnit;\n    top: $gridUnit;\n    bottom: $gridUnit;\n    right: $gridUnit;\n\n    .ui-progress-bar--separator {\n      height: 100%;\n      width: $dividerWidth;\n      background-color: $progressBarBackgroundColor;\n      z-index: 1;\n    }\n  }\n}\n",
+          "data": "$progressBarBackgroundColor: #fff;\n$progressBarActiveColor: #1FCC3B;\n$progressBarColor: transparentize(black, .9);\n$progressBarBorderColor: #fff;\n$progressBarBorderRadius: 10px;\n$dividerWidth: 1px;\n$gridUnit: 1px;\n\n.ui-progress-bar {\n  display: flex;\n  position: relative;\n  box-sizing: border-box;\n  align-items: center;\n  border-radius: $progressBarBorderRadius;\n\n  &:not(.ui-progress-bar--separated) {\n    .ui-progress-bar--value {\n      border-radius: $progressBarBorderRadius;\n    }\n  }\n\n  &.ui-progress-bar--small {\n    height: 10px;\n\n    .ui-progress-bar--value {\n      height: 6px;\n    }\n  }\n\n  &.ui-progress-bar--medium {\n    height: 15px;\n\n    .ui-progress-bar--value {\n      height: 11px;\n    }\n  }\n\n  &.ui-progress-bar--large {\n    height: 18px;\n\n    .ui-progress-bar--value {\n      height: 14px;\n    }\n  }\n\n  &:not(.ui-progress-bar--border):not(.ui-progress-bar--separated) {\n    .ui-progress-bar--inner-container {\n      background-color: $progressBarColor;\n    }\n  }\n\n  &.ui-progress-bar--border {\n\n    border: 1px solid $progressBarColor;\n  }\n\n\n  .ui-progress-bar--inner-container {\n    position: absolute;\n    left: 0;\n    right: 0;\n    border-radius: $progressBarBorderRadius;\n    overflow: hidden;\n\n    .ui-progress-bar--value {\n      display: flex;\n      background-color: $progressBarActiveColor;\n      transition: width ease-in-out .5s;\n    }\n  }\n\n  &:not(.ui-progress-bar--border) {\n    .ui-progress-bar--separator-container {\n      left: 2px;\n      top: 2px;\n      bottom: 2px;\n      right: 2px;\n    }\n  }\n\n  &.ui-progress-bar--border {\n    .ui-progress-bar--separator-container {\n      left: $gridUnit;\n      top: $gridUnit;\n      bottom: $gridUnit;\n      right: $gridUnit;\n    }\n  }\n\n\n  .ui-progress-bar--separator-container {\n    position: absolute;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-evenly;\n    border-radius: 10px;\n    background-color: $progressBarColor;\n    box-sizing: border-box;\n\n    .ui-progress-bar--separator {\n      height: 100%;\n      width: $dividerWidth;\n      background-color: $progressBarBackgroundColor;\n      z-index: 1;\n    }\n  }\n}\n\n.ui-progress-bar--text-container {\n  font-weight: 500;\n  font-size: 14px;\n  line-height: 20px;\n  font-family: 'DM Sans', sans-serif;\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n\n  .ui-progress-bar--text-value {\n    font-weight: 700;\n    font-size: 20px;\n    line-height: 30px;\n    margin-left: 5px;\n  }\n}\n\n.ui-progress-bar--left-value {\n  color: #5B6273;\n}\n",
           "styleUrl": "./progress-bar.component.scss"
         }
       ],
@@ -554,11 +562,11 @@
             "name": "classes",
             "type": "[]",
             "returnType": "string[]",
-            "line": 52
+            "line": 55
           }
         }
       },
-      "templateData": "<div [ngClass]=\"classes\">\n  <ng-container *ngIf=\"separated\">\n    <div class=\"ui-progress-bar--separator-container\">\n      <div class=\"ui-progress-bar--separator\" *ngFor=\"let one of _slices\"></div>\n    </div>\n  </ng-container>\n  <div class=\"ui-progress-bar--inner-container\">\n    <div class=\"ui-progress-bar--value\" [style.width]=\"progress + '%'\"></div>\n  </div>\n</div>\n"
+      "templateData": "<ng-container *ngIf=\"showText\">\n  <div class=\"ui-progress-bar--text-container\">\n    <div class=\"ui-progress-bar--value-container\">\n      <span class=\"ui-progress-bar--text-value-label\">Your points:</span>\n      <span class=\"ui-progress-bar--text-value\">{{value}}</span>\n    </div>\n    <div class=\"ui-progress-bar--left-container\">\n      <span class=\"ui-progress-bar--left-value\">{{maxValue - value}} points to next level</span>\n    </div>\n  </div>\n</ng-container>\n<div [ngClass]=\"classes\">\n  <ng-container *ngIf=\"separated\">\n    <div class=\"ui-progress-bar--separator-container\">\n      <div class=\"ui-progress-bar--separator\" *ngFor=\"let one of _slices\"></div>\n    </div>\n  </ng-container>\n  <div class=\"ui-progress-bar--inner-container\">\n    <div class=\"ui-progress-bar--value\" [style.width]=\"progress + '%'\"></div>\n  </div>\n</div>\n"
     }
   ],
   "modules": [
@@ -1536,8 +1544,8 @@
         "type": "component",
         "linktype": "component",
         "name": "ProgressBar",
-        "coveragePercent": 12,
-        "coverageCount": "1/8",
+        "coveragePercent": 11,
+        "coverageCount": "1/9",
         "status": "low"
       },
       {
