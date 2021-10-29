@@ -1,3 +1,5 @@
+@import "src/styles/variables";
+
 $progressBarBackgroundColor: #fff;
 $progressBarActiveColor: #1FCC3B;
 $progressBarColor: transparentize(black, .9);
@@ -125,4 +127,29 @@ $gridUnit: 1px;
 
 .ui-progress-bar--left-value {
   color: #5B6273;
+  font-weight: 500;
+}
+
+.ui-progress-bar--value-container {
+  display: flex;
+  align-items: first baseline;
+}
+
+@media (min-width: map-get($grid-breakpoints, xss)) and (max-width: map-get($grid-breakpoints, sm)) {
+  .ui-progress-bar--text-container:not(.mobile) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .ui-progress-bar--value-container {
+      align-items: center;
+    }
+  }
+  .ui-progress-bar--text-container.mobile {
+    flex-direction: row;
+
+    .ui-progress-bar--value-container {
+      align-items: flex-end;
+    }
+  }
 }

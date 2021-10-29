@@ -1,11 +1,13 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ButtonModule, ProgressBarModule} from './components';
+import {ButtonModule, ProgressBarModule, UserCardModule} from './components';
+
+export const UI_MODULES = [ButtonModule, ProgressBarModule, UserCardModule];
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule],
-  exports: [ButtonModule, ProgressBarModule],
+  imports: [CommonModule, ...UI_MODULES],
+  exports: [CommonModule, ...UI_MODULES],
 })
 export class SharedModule {
 }

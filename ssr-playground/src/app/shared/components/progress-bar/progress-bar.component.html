@@ -1,5 +1,5 @@
 <ng-container *ngIf="showText">
-  <div class="ui-progress-bar--text-container">
+  <div class="ui-progress-bar--text-container" [class.mobile]="mobile">
     <div class="ui-progress-bar--value-container">
       <span class="ui-progress-bar--text-value-label">Your points:</span>
       <span class="ui-progress-bar--text-value">{{value}}</span>

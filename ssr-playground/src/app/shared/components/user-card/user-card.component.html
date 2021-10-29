@@ -1,0 +1,37 @@
+<ng-container *ngIf="user">
+  <div class="ui-user-card--container" [ngClass]="classes">
+    <div class="ui-user-card--avatar">
+      <div class="ui-user-card--src">
+        <img src="/assets/stackalt.svg"/>
+      </div>
+    </div>
+    <div class="ui-user-card--text">
+      <div class="ui-user-card--user-info" *ngIf="user.username">
+        {{ user.username }}
+      </div>
+      <div class="ui-user-card--user-role">
+        <ui-button label="Amber"></ui-button>
+      </div>
+      <ng-container
+        *ngIf="!mobile"
+        [ngTemplateOutlet]="progressBar"
+      ></ng-container>
+    </div>
+  </div>
+</ng-container>
+<ng-container
+  *ngIf="mobile"
+  [ngTemplateOutlet]="progressBar"
+></ng-container>
+<ng-template #progressBar>
+  <ui-progress-bar
+    [value]="user.points"
+    [maxValue]="user.maxValue"
+    [showText]="true"
+    [border]="true"
+    [separated]="true"
+    [slices]="9"
+    size="medium"
+    [mobile]="mobile"
+  ></ui-progress-bar>
+</ng-template>

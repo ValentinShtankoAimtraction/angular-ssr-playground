@@ -20,6 +20,9 @@ export class ProgressBar {
   @Input()
   maxValue: number = 0;
 
+  @Input()
+  mobile: boolean = false;
+
   get progress(): number {
     if (!this.value || !this.maxValue) {
       return 0;
@@ -55,11 +58,13 @@ export class ProgressBar {
   public get classes(): string[] {
     const border = this.border ? 'ui-progress-bar--border' : '';
     const separated = this.separated ? 'ui-progress-bar--separated' : '';
+    const mobile = this.mobile ? 'ui-progress-bar--mobile' : '';
     return [
       'ui-progress-bar',
       `ui-progress-bar--${this.size}`,
       border,
       separated,
+      mobile,
     ].filter((x) => !!x);
   }
 }

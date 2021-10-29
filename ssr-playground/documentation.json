@@ -1,6 +1,48 @@
 {
   "pipes": [],
-  "interfaces": [],
+  "interfaces": [
+    {
+      "name": "User",
+      "id": "interface-User-7a514f1dbd6bdcb2e482c7610a107296",
+      "file": "src/app/shared/components/user-card/user-card.component.ts",
+      "deprecated": false,
+      "deprecationMessage": "",
+      "type": "interface",
+      "sourceCode": "import {\n  Component,\n  OnInit,\n  ChangeDetectionStrategy,\n  Input,\n} from '@angular/core';\n\nexport interface User {\n  username: string;\n  points: number;\n  maxValue: number;\n}\n\n@Component({\n  selector: 'ui-user-card',\n  templateUrl: './user-card.component.html',\n  styleUrls: ['./user-card.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class UserCard implements OnInit {\n  @Input()\n  user: User;\n\n  @Input()\n  mobile: boolean;\n\n  constructor() {\n    this.user = {\n      username: '',\n      points: 0,\n      maxValue: 0,\n    };\n    this.mobile = false;\n  }\n\n  public get classes(): string[] {\n    const mobile = this.mobile ? 'ui-user-card--mobile' : '';\n    return ['ui-user-card', mobile].filter((x) => !!x);\n  }\n\n  ngOnInit(): void {}\n}\n",
+      "properties": [
+        {
+          "name": "maxValue",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "number",
+          "optional": false,
+          "description": "",
+          "line": 11
+        },
+        {
+          "name": "points",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "number",
+          "optional": false,
+          "description": "",
+          "line": 10
+        },
+        {
+          "name": "username",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "string",
+          "optional": false,
+          "description": "",
+          "line": 9
+        }
+      ],
+      "indexSignatures": [],
+      "kind": 164,
+      "methods": []
+    }
+  ],
   "injectables": [],
   "guards": [],
   "interceptors": [],
@@ -335,80 +377,8 @@
       "stylesData": ""
     },
     {
-      "name": "PageComponent",
-      "id": "component-PageComponent-6d5c9bdd244d9e514a2acfde9058f90f",
-      "file": "src/stories/page.component.ts",
-      "encapsulation": [],
-      "entryComponents": [],
-      "inputs": [],
-      "outputs": [],
-      "providers": [],
-      "selector": "storybook-page",
-      "styleUrls": [
-        "./page.css"
-      ],
-      "styles": [],
-      "template": "<article>    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"onLogout.emit($event)\"\n      (onLogin)=\"onLogin.emit($event)\"\n      (onCreateAccount)=\"onCreateAccount.emit($event)\"\n    ></storybook-header>\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Storybook tutorials\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>",
-      "templateUrl": [],
-      "viewProviders": [],
-      "inputsClass": [
-        {
-          "name": "user",
-          "defaultValue": "null",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "line": 64,
-          "type": ""
-        }
-      ],
-      "outputsClass": [
-        {
-          "name": "onCreateAccount",
-          "defaultValue": "new EventEmitter<Event>()",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "line": 73,
-          "type": "EventEmitter"
-        },
-        {
-          "name": "onLogin",
-          "defaultValue": "new EventEmitter<Event>()",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "line": 67,
-          "type": "EventEmitter"
-        },
-        {
-          "name": "onLogout",
-          "defaultValue": "new EventEmitter<Event>()",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "line": 70,
-          "type": "EventEmitter"
-        }
-      ],
-      "propertiesClass": [],
-      "methodsClass": [],
-      "deprecated": false,
-      "deprecationMessage": "",
-      "hostBindings": [],
-      "hostListeners": [],
-      "description": "",
-      "rawdescription": "\n",
-      "type": "component",
-      "sourceCode": "import {Component, Input, Output, EventEmitter} from '@angular/core';\n\n@Component({\n  selector: 'storybook-page',\n  template: `<article>\n    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"onLogout.emit($event)\"\n      (onLogin)=\"onLogin.emit($event)\"\n      (onCreateAccount)=\"onCreateAccount.emit($event)\"\n    ></storybook-header>\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Storybook tutorials\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>`,\n  styleUrls: ['./page.css'],\n})\nexport default class PageComponent {\n  @Input()\n  user: unknown = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n\n// export const Page = ({ user, onLogin, onLogout, onCreateAccount }) => (\n//   <article>\n//     <Header user={user} onLogin={onLogin} onLogout={onLogout} onCreateAccount={onCreateAccount} />\n\n// );\n// Page.propTypes = {\n//   user: PropTypes.shape({}),\n//   onLogin: PropTypes.func.isRequired,\n//   onLogout: PropTypes.func.isRequired,\n//   onCreateAccount: PropTypes.func.isRequired,\n// };\n\n// Page.defaultProps = {\n//   user: null,\n// };\n",
-      "assetsDirs": [],
-      "styleUrlsData": [
-        {
-          "data": "section {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  line-height: 24px;\n  padding: 48px 20px;\n  margin: 0 auto;\n  max-width: 600px;\n  color: #333;\n}\n\nh2 {\n  font-weight: 900;\n  font-size: 32px;\n  line-height: 1;\n  margin: 0 0 4px;\n  display: inline-block;\n  vertical-align: top;\n}\n\np {\n  margin: 1em 0;\n}\n\na {\n  text-decoration: none;\n  color: #1ea7fd;\n}\n\nul {\n  padding-left: 30px;\n  margin: 1em 0;\n}\n\nli {\n  margin-bottom: 8px;\n}\n\n.tip {\n  display: inline-block;\n  border-radius: 1em;\n  font-size: 11px;\n  line-height: 12px;\n  font-weight: 700;\n  background: #e7fdd8;\n  color: #66bf3c;\n  padding: 4px 12px;\n  margin-right: 10px;\n  vertical-align: top;\n}\n\n.tip-wrapper {\n  font-size: 13px;\n  line-height: 20px;\n  margin-top: 40px;\n  margin-bottom: 40px;\n}\n\n.tip-wrapper svg {\n  display: inline-block;\n  height: 12px;\n  width: 12px;\n  margin-right: 4px;\n  vertical-align: top;\n  margin-top: 3px;\n}\n\n.tip-wrapper svg path {\n  fill: #1ea7fd;\n}\n",
-          "styleUrl": "./page.css"
-        }
-      ],
-      "stylesData": ""
-    },
-    {
       "name": "ProgressBar",
-      "id": "component-ProgressBar-0633adb5e6abdf81b6cbb2f762f65a2d",
+      "id": "component-ProgressBar-1863cf434894d91bf012a8f6c9ef5598",
       "file": "src/app/shared/components/progress-bar/progress-bar.component.ts",
       "changeDetection": "ChangeDetectionStrategy.OnPush",
       "encapsulation": [],
@@ -431,7 +401,7 @@
           "defaultValue": "false",
           "deprecated": false,
           "deprecationMessage": "",
-          "line": 50,
+          "line": 53,
           "type": "boolean"
         },
         {
@@ -443,11 +413,19 @@
           "type": "number"
         },
         {
+          "name": "mobile",
+          "defaultValue": "false",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 24,
+          "type": "boolean"
+        },
+        {
           "name": "separated",
           "defaultValue": "false",
           "deprecated": false,
           "deprecationMessage": "",
-          "line": 31,
+          "line": 34,
           "type": "boolean"
         },
         {
@@ -455,7 +433,7 @@
           "defaultValue": "false",
           "deprecated": false,
           "deprecationMessage": "",
-          "line": 53,
+          "line": 56,
           "type": "boolean"
         },
         {
@@ -463,7 +441,7 @@
           "defaultValue": "'medium'",
           "deprecated": false,
           "deprecationMessage": "",
-          "line": 47,
+          "line": 50,
           "type": "\"small\" | \"medium\" | \"large\""
         },
         {
@@ -472,7 +450,7 @@
           "deprecationMessage": "",
           "rawdescription": "count of slices (limit: 100)",
           "description": "<p>count of slices (limit: 100)</p>\n",
-          "line": 39,
+          "line": 42,
           "type": "number"
         },
         {
@@ -494,7 +472,7 @@
           "type": "Array<>",
           "optional": false,
           "description": "",
-          "line": 33
+          "line": 36
         }
       ],
       "methodsClass": [],
@@ -505,11 +483,11 @@
       "description": "",
       "rawdescription": "\n",
       "type": "component",
-      "sourceCode": "import {\n  Component,\n  OnInit,\n  ChangeDetectionStrategy,\n  Input,\n} from '@angular/core';\n\nexport const MAX_SLICES = 100;\n\n@Component({\n  selector: 'ui-progress-bar',\n  templateUrl: './progress-bar.component.html',\n  styleUrls: ['./progress-bar.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ProgressBar {\n  @Input()\n  value: number = 0;\n\n  @Input()\n  maxValue: number = 0;\n\n  get progress(): number {\n    if (!this.value || !this.maxValue) {\n      return 0;\n    }\n    return (this.value / this.maxValue) * 100;\n  }\n\n  @Input()\n  separated = false;\n\n  _slices: Array<null> = [];\n  /**\n   * count of slices (limit: 100)\n   *\n   */\n  @Input()\n  set slices(slices: number) {\n    if (slices >= MAX_SLICES) {\n      slices = MAX_SLICES;\n    }\n    this._slices = Array(slices - 1).fill(0);\n  }\n\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  @Input()\n  border: boolean = false;\n\n  @Input()\n  showText: boolean = false;\n\n  public get classes(): string[] {\n    const border = this.border ? 'ui-progress-bar--border' : '';\n    const separated = this.separated ? 'ui-progress-bar--separated' : '';\n    return [\n      'ui-progress-bar',\n      `ui-progress-bar--${this.size}`,\n      border,\n      separated,\n    ].filter((x) => !!x);\n  }\n}\n",
+      "sourceCode": "import {\n  Component,\n  OnInit,\n  ChangeDetectionStrategy,\n  Input,\n} from '@angular/core';\n\nexport const MAX_SLICES = 100;\n\n@Component({\n  selector: 'ui-progress-bar',\n  templateUrl: './progress-bar.component.html',\n  styleUrls: ['./progress-bar.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ProgressBar {\n  @Input()\n  value: number = 0;\n\n  @Input()\n  maxValue: number = 0;\n\n  @Input()\n  mobile: boolean = false;\n\n  get progress(): number {\n    if (!this.value || !this.maxValue) {\n      return 0;\n    }\n    return (this.value / this.maxValue) * 100;\n  }\n\n  @Input()\n  separated = false;\n\n  _slices: Array<null> = [];\n  /**\n   * count of slices (limit: 100)\n   *\n   */\n  @Input()\n  set slices(slices: number) {\n    if (slices >= MAX_SLICES) {\n      slices = MAX_SLICES;\n    }\n    this._slices = Array(slices - 1).fill(0);\n  }\n\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  @Input()\n  border: boolean = false;\n\n  @Input()\n  showText: boolean = false;\n\n  public get classes(): string[] {\n    const border = this.border ? 'ui-progress-bar--border' : '';\n    const separated = this.separated ? 'ui-progress-bar--separated' : '';\n    const mobile = this.mobile ? 'ui-progress-bar--mobile' : '';\n    return [\n      'ui-progress-bar',\n      `ui-progress-bar--${this.size}`,\n      border,\n      separated,\n      mobile,\n    ].filter((x) => !!x);\n  }\n}\n",
       "assetsDirs": [],
       "styleUrlsData": [
         {
-          "data": "$progressBarBackgroundColor: #fff;\n$progressBarActiveColor: #1FCC3B;\n$progressBarColor: transparentize(black, .9);\n$progressBarBorderColor: #fff;\n$progressBarBorderRadius: 10px;\n$dividerWidth: 1px;\n$gridUnit: 1px;\n\n.ui-progress-bar {\n  display: flex;\n  position: relative;\n  box-sizing: border-box;\n  align-items: center;\n  border-radius: $progressBarBorderRadius;\n\n  &:not(.ui-progress-bar--separated) {\n    .ui-progress-bar--value {\n      border-radius: $progressBarBorderRadius;\n    }\n  }\n\n  &.ui-progress-bar--small {\n    height: 10px;\n\n    .ui-progress-bar--value {\n      height: 6px;\n    }\n  }\n\n  &.ui-progress-bar--medium {\n    height: 15px;\n\n    .ui-progress-bar--value {\n      height: 11px;\n    }\n  }\n\n  &.ui-progress-bar--large {\n    height: 18px;\n\n    .ui-progress-bar--value {\n      height: 14px;\n    }\n  }\n\n  &:not(.ui-progress-bar--border):not(.ui-progress-bar--separated) {\n    .ui-progress-bar--inner-container {\n      background-color: $progressBarColor;\n    }\n  }\n\n  &.ui-progress-bar--border {\n\n    border: 1px solid $progressBarColor;\n  }\n\n\n  .ui-progress-bar--inner-container {\n    position: absolute;\n    left: 0;\n    right: 0;\n    border-radius: $progressBarBorderRadius;\n    overflow: hidden;\n\n    .ui-progress-bar--value {\n      display: flex;\n      background-color: $progressBarActiveColor;\n      transition: width ease-in-out .5s;\n    }\n  }\n\n  &:not(.ui-progress-bar--border) {\n    .ui-progress-bar--separator-container {\n      left: 2px;\n      top: 2px;\n      bottom: 2px;\n      right: 2px;\n    }\n  }\n\n  &.ui-progress-bar--border {\n    .ui-progress-bar--separator-container {\n      left: $gridUnit;\n      top: $gridUnit;\n      bottom: $gridUnit;\n      right: $gridUnit;\n    }\n  }\n\n\n  .ui-progress-bar--separator-container {\n    position: absolute;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-evenly;\n    border-radius: 10px;\n    background-color: $progressBarColor;\n    box-sizing: border-box;\n\n    .ui-progress-bar--separator {\n      height: 100%;\n      width: $dividerWidth;\n      background-color: $progressBarBackgroundColor;\n      z-index: 1;\n    }\n  }\n}\n\n.ui-progress-bar--text-container {\n  font-weight: 500;\n  font-size: 14px;\n  line-height: 20px;\n  font-family: 'DM Sans', sans-serif;\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n\n  .ui-progress-bar--text-value {\n    font-weight: 700;\n    font-size: 20px;\n    line-height: 30px;\n    margin-left: 5px;\n  }\n}\n\n.ui-progress-bar--left-value {\n  color: #5B6273;\n}\n",
+          "data": "@import \"src/styles/variables\";\n\n$progressBarBackgroundColor: #fff;\n$progressBarActiveColor: #1FCC3B;\n$progressBarColor: transparentize(black, .9);\n$progressBarBorderColor: #fff;\n$progressBarBorderRadius: 10px;\n$dividerWidth: 1px;\n$gridUnit: 1px;\n\n.ui-progress-bar {\n  display: flex;\n  position: relative;\n  box-sizing: border-box;\n  align-items: center;\n  border-radius: $progressBarBorderRadius;\n\n  &:not(.ui-progress-bar--separated) {\n    .ui-progress-bar--value {\n      border-radius: $progressBarBorderRadius;\n    }\n  }\n\n  &.ui-progress-bar--small {\n    height: 10px;\n\n    .ui-progress-bar--value {\n      height: 6px;\n    }\n  }\n\n  &.ui-progress-bar--medium {\n    height: 15px;\n\n    .ui-progress-bar--value {\n      height: 11px;\n    }\n  }\n\n  &.ui-progress-bar--large {\n    height: 18px;\n\n    .ui-progress-bar--value {\n      height: 14px;\n    }\n  }\n\n  &:not(.ui-progress-bar--border):not(.ui-progress-bar--separated) {\n    .ui-progress-bar--inner-container {\n      background-color: $progressBarColor;\n    }\n  }\n\n  &.ui-progress-bar--border {\n\n    border: 1px solid $progressBarColor;\n  }\n\n\n  .ui-progress-bar--inner-container {\n    position: absolute;\n    left: $gridUnit;\n    right: $gridUnit;\n    border-radius: $progressBarBorderRadius;\n    overflow: hidden;\n\n    .ui-progress-bar--value {\n      display: flex;\n      background-color: $progressBarActiveColor;\n      transition: width ease-in-out .5s;\n    }\n  }\n\n  &:not(.ui-progress-bar--border) {\n    .ui-progress-bar--separator-container {\n      left: 2px;\n      top: 2px;\n      bottom: 2px;\n      right: 2px;\n    }\n  }\n\n  &.ui-progress-bar--border {\n    .ui-progress-bar--separator-container {\n      left: $gridUnit;\n      top: $gridUnit;\n      bottom: $gridUnit;\n      right: $gridUnit;\n    }\n  }\n\n\n  .ui-progress-bar--separator-container {\n    position: absolute;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-evenly;\n    border-radius: 10px;\n    background-color: $progressBarColor;\n    box-sizing: border-box;\n\n    .ui-progress-bar--separator {\n      height: 100%;\n      width: $dividerWidth;\n      background-color: $progressBarBackgroundColor;\n      z-index: 1;\n    }\n  }\n}\n\n.ui-progress-bar--text-container {\n  font-weight: 500;\n  font-size: 14px;\n  line-height: 20px;\n  font-family: 'DM Sans', sans-serif;\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n\n  .ui-progress-bar--text-value {\n    font-weight: 700;\n    font-size: 20px;\n    line-height: 30px;\n    margin-left: 5px;\n  }\n}\n\n.ui-progress-bar--left-value {\n  color: #5B6273;\n  font-weight: 500;\n}\n\n.ui-progress-bar--value-container {\n  display: flex;\n  align-items: first baseline;\n}\n\n@media (min-width: map-get($grid-breakpoints, xss)) and (max-width: map-get($grid-breakpoints, sm)) {\n  .ui-progress-bar--text-container:not(.mobile) {\n    display: flex;\n    flex-direction: column;\n    align-items: flex-start;\n\n    .ui-progress-bar--value-container {\n      align-items: center;\n    }\n  }\n  .ui-progress-bar--text-container.mobile {\n    flex-direction: row;\n\n    .ui-progress-bar--value-container {\n      align-items: flex-end;\n    }\n  }\n}\n",
           "styleUrl": "./progress-bar.component.scss"
         }
       ],
@@ -521,7 +499,7 @@
             "name": "progress",
             "type": "number",
             "returnType": "number",
-            "line": 23
+            "line": 26
           }
         },
         "slices": {
@@ -540,7 +518,7 @@
               }
             ],
             "returnType": "void",
-            "line": 39,
+            "line": 42,
             "rawdescription": "count of slices (limit: 100)",
             "description": "<p>count of slices (limit: 100)</p>\n",
             "jsdoctags": [
@@ -562,11 +540,100 @@
             "name": "classes",
             "type": "[]",
             "returnType": "string[]",
-            "line": 55
+            "line": 58
           }
         }
       },
-      "templateData": "<ng-container *ngIf=\"showText\">\n  <div class=\"ui-progress-bar--text-container\">\n    <div class=\"ui-progress-bar--value-container\">\n      <span class=\"ui-progress-bar--text-value-label\">Your points:</span>\n      <span class=\"ui-progress-bar--text-value\">{{value}}</span>\n    </div>\n    <div class=\"ui-progress-bar--left-container\">\n      <span class=\"ui-progress-bar--left-value\">{{maxValue - value}} points to next level</span>\n    </div>\n  </div>\n</ng-container>\n<div [ngClass]=\"classes\">\n  <ng-container *ngIf=\"separated\">\n    <div class=\"ui-progress-bar--separator-container\">\n      <div class=\"ui-progress-bar--separator\" *ngFor=\"let one of _slices\"></div>\n    </div>\n  </ng-container>\n  <div class=\"ui-progress-bar--inner-container\">\n    <div class=\"ui-progress-bar--value\" [style.width]=\"progress + '%'\"></div>\n  </div>\n</div>\n"
+      "templateData": "<ng-container *ngIf=\"showText\">\n  <div class=\"ui-progress-bar--text-container\" [class.mobile]=\"mobile\">\n    <div class=\"ui-progress-bar--value-container\">\n      <span class=\"ui-progress-bar--text-value-label\">Your points:</span>\n      <span class=\"ui-progress-bar--text-value\">{{value}}</span>\n    </div>\n    <div class=\"ui-progress-bar--left-container\">\n      <span class=\"ui-progress-bar--left-value\">{{maxValue - value}} points to next level</span>\n    </div>\n  </div>\n</ng-container>\n<div [ngClass]=\"classes\">\n  <ng-container *ngIf=\"separated\">\n    <div class=\"ui-progress-bar--separator-container\">\n      <div class=\"ui-progress-bar--separator\" *ngFor=\"let one of _slices\"></div>\n    </div>\n  </ng-container>\n  <div class=\"ui-progress-bar--inner-container\">\n    <div class=\"ui-progress-bar--value\" [style.width]=\"progress + '%'\"></div>\n  </div>\n</div>\n"
+    },
+    {
+      "name": "UserCard",
+      "id": "component-UserCard-7a514f1dbd6bdcb2e482c7610a107296",
+      "file": "src/app/shared/components/user-card/user-card.component.ts",
+      "changeDetection": "ChangeDetectionStrategy.OnPush",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "ui-user-card",
+      "styleUrls": [
+        "./user-card.component.scss"
+      ],
+      "styles": [],
+      "templateUrl": [
+        "./user-card.component.html"
+      ],
+      "viewProviders": [],
+      "inputsClass": [
+        {
+          "name": "mobile",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 25,
+          "type": "boolean"
+        },
+        {
+          "name": "user",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "line": 22,
+          "type": "User"
+        }
+      ],
+      "outputsClass": [],
+      "propertiesClass": [],
+      "methodsClass": [
+        {
+          "name": "ngOnInit",
+          "args": [],
+          "optional": false,
+          "returnType": "void",
+          "typeParameters": [],
+          "line": 41,
+          "deprecated": false,
+          "deprecationMessage": ""
+        }
+      ],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import {\n  Component,\n  OnInit,\n  ChangeDetectionStrategy,\n  Input,\n} from '@angular/core';\n\nexport interface User {\n  username: string;\n  points: number;\n  maxValue: number;\n}\n\n@Component({\n  selector: 'ui-user-card',\n  templateUrl: './user-card.component.html',\n  styleUrls: ['./user-card.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class UserCard implements OnInit {\n  @Input()\n  user: User;\n\n  @Input()\n  mobile: boolean;\n\n  constructor() {\n    this.user = {\n      username: '',\n      points: 0,\n      maxValue: 0,\n    };\n    this.mobile = false;\n  }\n\n  public get classes(): string[] {\n    const mobile = this.mobile ? 'ui-user-card--mobile' : '';\n    return ['ui-user-card', mobile].filter((x) => !!x);\n  }\n\n  ngOnInit(): void {}\n}\n",
+      "assetsDirs": [],
+      "styleUrlsData": [
+        {
+          "data": "@import \"src/styles/variables\";\n\nsection {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  line-height: 24px;\n  padding: 48px 20px;\n  margin: 0 auto;\n  max-width: 600px;\n  color: #333;\n}\n\nh2 {\n  font-weight: 900;\n  font-size: 32px;\n  line-height: 1;\n  margin: 0 0 4px;\n  display: inline-block;\n  vertical-align: top;\n}\n\np {\n  margin: 1em 0;\n}\n\na {\n  text-decoration: none;\n  color: #1ea7fd;\n}\n\nul {\n  padding-left: 30px;\n  margin: 1em 0;\n}\n\nli {\n  margin-bottom: 8px;\n}\n\n.tip {\n  display: inline-block;\n  border-radius: 1em;\n  font-size: 11px;\n  line-height: 12px;\n  font-weight: 700;\n  background: #e7fdd8;\n  color: #66bf3c;\n  padding: 4px 12px;\n  margin-right: 10px;\n  vertical-align: top;\n}\n\n.tip-wrapper {\n  font-size: 13px;\n  line-height: 20px;\n  margin-top: 40px;\n  margin-bottom: 40px;\n}\n\n.tip-wrapper svg {\n  display: inline-block;\n  height: 12px;\n  width: 12px;\n  margin-right: 4px;\n  vertical-align: top;\n  margin-top: 3px;\n}\n\n.tip-wrapper svg path {\n  fill: #1ea7fd;\n}\n\n.ui-user-card {\n  display: grid;\n  grid-gap: 20px;\n  grid-auto-flow: column;\n  grid-template-columns: max-content;\n\n  .ui-user-card--avatar {\n    width: 136px;\n    height: 136px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-radius: 3px;\n    border: 2px solid #ECEFF1;\n    box-sizing: border-box;\n\n    .ui-user-card--src {\n      display: flex;\n      width: 100%;\n      height: 100%;\n    }\n  }\n\n  &.ui-user-card--mobile {\n    .ui-user-card--text {\n      justify-content: flex-start;\n    }\n  }\n\n  .ui-user-card--text {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n\n    .ui-user-card--user-info {\n      font-family: 'DM Sans', sans-serif;\n      font-weight: 700;\n      font-size: 24px;\n      line-height: 32px;\n    }\n\n    .ui-user-card--user-role {\n\n    }\n  }\n}\n\n\n@media (min-width: map-get($grid-breakpoints, xss)) and (max-width: map-get($grid-breakpoints, md)) {\n\n}\n",
+          "styleUrl": "./user-card.component.scss"
+        }
+      ],
+      "stylesData": "",
+      "constructorObj": {
+        "name": "constructor",
+        "description": "",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "args": [],
+        "line": 25
+      },
+      "implements": [
+        "OnInit"
+      ],
+      "accessors": {
+        "classes": {
+          "name": "classes",
+          "getSignature": {
+            "name": "classes",
+            "type": "[]",
+            "returnType": "string[]",
+            "line": 36
+          }
+        }
+      },
+      "templateData": "<ng-container *ngIf=\"user\">\n  <div class=\"ui-user-card--container\" [ngClass]=\"classes\">\n    <div class=\"ui-user-card--avatar\">\n      <div class=\"ui-user-card--src\">\n        <img src=\"/assets/stackalt.svg\"/>\n      </div>\n    </div>\n    <div class=\"ui-user-card--text\">\n      <div class=\"ui-user-card--user-info\" *ngIf=\"user.username\">\n        {{ user.username }}\n      </div>\n      <div class=\"ui-user-card--user-role\">\n        <ui-button label=\"Amber\"></ui-button>\n      </div>\n      <ng-container\n        *ngIf=\"!mobile\"\n        [ngTemplateOutlet]=\"progressBar\"\n      ></ng-container>\n    </div>\n  </div>\n</ng-container>\n<ng-container\n  *ngIf=\"mobile\"\n  [ngTemplateOutlet]=\"progressBar\"\n></ng-container>\n<ng-template #progressBar>\n  <ui-progress-bar\n    [value]=\"user.points\"\n    [maxValue]=\"user.maxValue\"\n    [showText]=\"true\"\n    [border]=\"true\"\n    [separated]=\"true\"\n    [slices]=\"9\"\n    size=\"medium\"\n    [mobile]=\"mobile\"\n  ></ui-progress-bar>\n</ng-template>\n"
     }
   ],
   "modules": [
@@ -656,13 +723,13 @@
     },
     {
       "name": "AppServerModule",
-      "id": "module-AppServerModule-388dba6e0c6e1be74184e92a0f893490",
+      "id": "module-AppServerModule-996a1a47596dd2cb9d2b35c2071ef2c1",
       "description": "",
       "deprecationMessage": "",
       "deprecated": false,
       "file": "src/app/app.server.module.ts",
       "methods": [],
-      "sourceCode": "import {NgModule} from '@angular/core';\nimport {ServerModule} from '@angular/platform-server';\n\nimport {AppModule} from './app.module';\nimport {AppComponent} from './app.component';\n\n@NgModule({\n  imports: [\n    AppModule,\n    ServerModule,\n  ],\n  bootstrap: [AppComponent],\n})\nexport class AppServerModule {\n}\n",
+      "sourceCode": "import { NgModule } from '@angular/core';\nimport { ServerModule } from '@angular/platform-server';\n\nimport { AppModule } from './app.module';\nimport { AppComponent } from './app.component';\n\n@NgModule({\n  imports: [AppModule, ServerModule],\n  bootstrap: [AppComponent],\n})\nexport class AppServerModule {}\n",
       "children": [
         {
           "type": "providers",
@@ -744,13 +811,13 @@
     },
     {
       "name": "ProgressBarModule",
-      "id": "module-ProgressBarModule-13bd1205a130fc8e04c774b9dd15bbb5",
+      "id": "module-ProgressBarModule-261f2cb237ac9dd207efd7b5ab6081b9",
       "description": "",
       "deprecationMessage": "",
       "deprecated": false,
       "file": "src/app/shared/components/progress-bar/progress-bar.module.ts",
       "methods": [],
-      "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {ProgressBar} from './progress-bar.component';\n\n@NgModule({\n  declarations: [ProgressBar],\n  imports: [CommonModule],\n  exports: [ProgressBar],\n})\nexport class ProgressBarModule {\n}\n",
+      "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ProgressBar } from './progress-bar.component';\n\n@NgModule({\n  declarations: [ProgressBar],\n  imports: [CommonModule],\n  exports: [ProgressBar],\n})\nexport class ProgressBarModule {}\n",
       "children": [
         {
           "type": "providers",
@@ -788,13 +855,13 @@
     },
     {
       "name": "SharedModule",
-      "id": "module-SharedModule-ba9da72e0eb86b600fa66dda4e2ca8b8",
+      "id": "module-SharedModule-1ac82fbe893e33af1183ad0fd0527e14",
       "description": "",
       "deprecationMessage": "",
       "deprecated": false,
       "file": "src/app/shared/shared.module.ts",
       "methods": [],
-      "sourceCode": "import {NgModule} from '@angular/core';\nimport {CommonModule} from '@angular/common';\nimport {ButtonModule, ProgressBarModule} from './components';\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule],\n  exports: [ButtonModule, ProgressBarModule],\n})\nexport class SharedModule {\n}\n",
+      "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonModule, ProgressBarModule, UserCardModule } from './components';\n\nexport const UI_MODULES = [ButtonModule, ProgressBarModule, UserCardModule];\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule, ...UI_MODULES],\n  exports: [CommonModule, ...UI_MODULES],\n})\nexport class SharedModule {}\n",
       "children": [
         {
           "type": "providers",
@@ -806,7 +873,17 @@
         },
         {
           "type": "imports",
-          "elements": []
+          "elements": [
+            {
+              "name": "ButtonModule"
+            },
+            {
+              "name": "ProgressBarModule"
+            },
+            {
+              "name": "UserCardModule"
+            }
+          ]
         },
         {
           "type": "exports",
@@ -816,6 +893,60 @@
             },
             {
               "name": "ProgressBarModule"
+            },
+            {
+              "name": "UserCardModule"
+            }
+          ]
+        },
+        {
+          "type": "bootstrap",
+          "elements": []
+        },
+        {
+          "type": "classes",
+          "elements": []
+        }
+      ]
+    },
+    {
+      "name": "UserCardModule",
+      "id": "module-UserCardModule-31f9bf8581633996973248c69ced266f",
+      "description": "",
+      "deprecationMessage": "",
+      "deprecated": false,
+      "file": "src/app/shared/components/user-card/user-card.module.ts",
+      "methods": [],
+      "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { UserCard } from './user-card.component';\nimport { ButtonModule, ProgressBarModule } from '@shared/components';\n\n@NgModule({\n  declarations: [UserCard],\n  imports: [CommonModule, ButtonModule, ProgressBarModule],\n  exports: [UserCard],\n})\nexport class UserCardModule {}\n",
+      "children": [
+        {
+          "type": "providers",
+          "elements": []
+        },
+        {
+          "type": "declarations",
+          "elements": [
+            {
+              "name": "UserCard"
+            }
+          ]
+        },
+        {
+          "type": "imports",
+          "elements": [
+            {
+              "name": "ButtonModule"
+            },
+            {
+              "name": "ProgressBarModule"
+            }
+          ]
+        },
+        {
+          "type": "exports",
+          "elements": [
+            {
+              "name": "UserCard"
             }
           ]
         },
@@ -866,6 +997,16 @@
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "src/stories/ProgressBar.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/stories/UserCard.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
@@ -932,30 +1073,10 @@
         "defaultValue": "Template.bind({})"
       },
       {
-        "name": "LoggedIn",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "src/stories/Page.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "",
-        "defaultValue": "Template.bind({})"
-      },
-      {
         "name": "LoggedOut",
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "src/stories/Header.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "",
-        "defaultValue": "Template.bind({})"
-      },
-      {
-        "name": "LoggedOut",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "src/stories/Page.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
@@ -986,6 +1107,16 @@
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "src/stories/ProgressBar.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "Template.bind({})"
+      },
+      {
+        "name": "Mobile",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/stories/UserCard.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
@@ -1084,21 +1215,31 @@
         "name": "Template",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "src/stories/Page.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story<Page>",
-        "defaultValue": "(args: Page) => ({\n  props: args,\n})"
-      },
-      {
-        "name": "Template",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "src/stories/ProgressBar.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story<ProgressBar>",
         "defaultValue": "(args: ProgressBar) => ({\n  props: args,\n})"
+      },
+      {
+        "name": "Template",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/stories/UserCard.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story<UserCard>",
+        "defaultValue": "(args: UserCard) => ({\n  props: args,\n})"
+      },
+      {
+        "name": "UI_MODULES",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "src/app/shared/shared.module.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "[]",
+        "defaultValue": "[ButtonModule, ProgressBarModule, UserCardModule]"
       }
     ],
     "functions": [
@@ -1252,6 +1393,38 @@
           "type": "literal type"
         }
       ],
+      "src/stories/UserCard.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/stories/UserCard.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "Template.bind({})"
+        },
+        {
+          "name": "Mobile",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/stories/UserCard.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "Template.bind({})"
+        },
+        {
+          "name": "Template",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/stories/UserCard.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story<UserCard>",
+          "defaultValue": "(args: UserCard) => ({\n  props: args,\n})"
+        }
+      ],
       "src/stories/Button.stories.ts": [
         {
           "name": "Disabled",
@@ -1380,38 +1553,6 @@
           "defaultValue": "(args: Header) => ({\n  props: args,\n})"
         }
       ],
-      "src/stories/Page.stories.ts": [
-        {
-          "name": "LoggedIn",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "src/stories/Page.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "",
-          "defaultValue": "Template.bind({})"
-        },
-        {
-          "name": "LoggedOut",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "src/stories/Page.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "",
-          "defaultValue": "Template.bind({})"
-        },
-        {
-          "name": "Template",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "src/stories/Page.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story<Page>",
-          "defaultValue": "(args: Page) => ({\n  props: args,\n})"
-        }
-      ],
       "src/app/shared/components/progress-bar/progress-bar.component.ts": [
         {
           "name": "MAX_SLICES",
@@ -1422,6 +1563,18 @@
           "deprecationMessage": "",
           "type": "number",
           "defaultValue": "100"
+        }
+      ],
+      "src/app/shared/shared.module.ts": [
+        {
+          "name": "UI_MODULES",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "src/app/shared/shared.module.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "[]",
+          "defaultValue": "[ButtonModule, ProgressBarModule, UserCardModule]"
         }
       ]
     },
@@ -1544,8 +1697,8 @@
         "type": "component",
         "linktype": "component",
         "name": "ProgressBar",
-        "coveragePercent": 11,
-        "coverageCount": "1/9",
+        "coveragePercent": 10,
+        "coverageCount": "1/10",
         "status": "low"
       },
       {
@@ -1554,6 +1707,34 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "MAX_SLICES",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/shared/components/user-card/user-card.component.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "UserCard",
+        "coveragePercent": 0,
+        "coverageCount": "0/5",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/shared/components/user-card/user-card.component.ts",
+        "type": "interface",
+        "linktype": "interface",
+        "name": "User",
+        "coveragePercent": 0,
+        "coverageCount": "0/4",
+        "status": "low"
+      },
+      {
+        "filePath": "src/app/shared/shared.module.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "UI_MODULES",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
@@ -1689,36 +1870,6 @@
         "status": "low"
       },
       {
-        "filePath": "src/stories/Page.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "LoggedIn",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "src/stories/Page.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "LoggedOut",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "src/stories/Page.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "Template",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
         "filePath": "src/stories/ProgressBar.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
@@ -1779,19 +1930,40 @@
         "status": "low"
       },
       {
+        "filePath": "src/stories/UserCard.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/stories/UserCard.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Mobile",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "src/stories/UserCard.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Template",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
         "filePath": "src/stories/header.component.ts",
         "type": "component",
         "linktype": "component",
         "name": "HeaderComponent",
-        "coveragePercent": 0,
-        "coverageCount": "0/5",
-        "status": "low"
-      },
-      {
-        "filePath": "src/stories/page.component.ts",
-        "type": "component",
-        "linktype": "component",
-        "name": "PageComponent",
         "coveragePercent": 0,
         "coverageCount": "0/5",
         "status": "low"
